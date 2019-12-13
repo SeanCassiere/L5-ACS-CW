@@ -1,10 +1,77 @@
 $clr-main-bg: white;
 $clr-main-txt: black;
-
-
+@import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+.basic-border {border: 1px solid black;}
 html {scroll-behavior: smooth;}
 body {
   width: 100vw;
   max-width: 100%;
   font-size: 1rem;
+  margin: 0;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+header {
+  display: block;
+  height: 60vh; width: 100%; margin: 0; padding: 0;
+  background-image: url('../images/common/QPcLem.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: rgba(107,234,223,1.0);
+  a {text-decoration: none; color: $clr-main-txt;}
+  .nav__home {
+    font-family: 'Oswald', sans-serif;
+    width: 100%; margin: 0; padding: 0;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    background-color: white;
+    min-height: 5.5vh;
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    grid-template-areas: "navigation navigation navigation navigation logo . features features features";
+    .nav__logo {
+      grid-area: logo;
+      display: inline-block;
+      font-size: 2rem;
+      padding: 0.4rem 1rem;
+      text-align: center;
+    }
+    ul.nav__links {
+      #nav__reveal {
+        display: none;
+        padding: 0.5rem;
+        width: 4rem;
+      }
+      grid-area: navigation;
+      display: flex;
+      list-style-type: none;
+      padding: 1rem 2rem;
+      margin: 0;
+      li {
+        font-size: 1.2rem;
+        display: inline-block;
+        a {
+          padding: 0 1rem;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    .nav__home {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-template-areas:
+        "navigation navigation navigation navigation"
+        "logo logo features features";
+      ul.nav__links {
+        grid-area: navigation;
+        flex-direction: column;
+        #nav__reveal {display: block;}
+      }
+    }
+  }
 }

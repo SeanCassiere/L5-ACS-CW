@@ -1,3 +1,8 @@
+@import url("https://fonts.googleapis.com/css?family=Oswald&display=swap");
+.basic-border {
+  border: 1px solid black;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -6,5 +11,109 @@ body {
   width: 100vw;
   max-width: 100%;
   font-size: 1rem;
+  margin: 0;
+}
+
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+header {
+  display: block;
+  height: 60vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-image: url("../images/common/QPcLem.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #6beadf;
+}
+
+header a {
+  text-decoration: none;
+  color: black;
+}
+
+header .nav__home {
+  font-family: 'Oswald', sans-serif;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  background-color: white;
+  min-height: 5.5vh;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[9];
+      grid-template-columns: repeat(9, 1fr);
+      grid-template-areas: "navigation navigation navigation navigation logo . features features features";
+}
+
+header .nav__home .nav__logo {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+  grid-area: logo;
+  display: inline-block;
+  font-size: 2rem;
+  padding: 0.4rem 1rem;
+  text-align: center;
+}
+
+header .nav__home ul.nav__links {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+  grid-area: navigation;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style-type: none;
+  padding: 1rem 2rem;
+  margin: 0;
+}
+
+header .nav__home ul.nav__links #nav__reveal {
+  display: none;
+  padding: 0.5rem;
+  width: 4rem;
+}
+
+header .nav__home ul.nav__links li {
+  font-size: 1.2rem;
+  display: inline-block;
+}
+
+header .nav__home ul.nav__links li a {
+  padding: 0 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+  header .nav__home {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+    -ms-grid-rows: (1fr)[2];
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-areas: "navigation navigation navigation navigation" "logo logo features features";
+  }
+  header .nav__home ul.nav__links {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 4;
+    grid-area: navigation;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  header .nav__home ul.nav__links #nav__reveal {
+    display: block;
+  }
 }
 /*# sourceMappingURL=style.css.map */

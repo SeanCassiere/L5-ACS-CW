@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>Home</title>
   <link rel="stylesheet" href="./style/style.css">
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -12,20 +12,52 @@
 </head>
 <body>
   <header>
-    <nav>
-      <ul>
-        <li><a href="#">Page</a></li>
-        <li><a href="#">Page</a></li>
-        <li><a href="#">Page</a></li>
+    <nav class="nav__home">
+      <dv class="nav__logo"><a href="./index.html">Destinations</a></dv>
+      <ul class="nav__links">
+        <button id="nav__reveal">🞬</button>
+        <li><a href="#">Page 1</a></li>
+        <li><a href="#">Page 2</a></li>
+        <li><a href="#">Page 3</a></li>
       </ul>
     </nav>
   </header>
   <div id="content">
-    
+    <p>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </p>
   </div>
   <footer>
 
   </footer>
   <script src="./script/script.js"></script>
+  <script>
+  $("document").ready(function(){
+    $("#nav__reveal").click(function(){
+      if($(this).text() == "☰"){
+        $(this).text("✖");
+        //$("header .nav__home .nav__links li").toggle("slow");
+      }else{        
+        $(this).text("☰");
+        //$("header .nav__home .nav__links li").toggle("slow");      
+      }
+      $("header .nav__home .nav__links li").toggle("slow");
+
+      $(window).resize(function() {
+        var width = $(window).width();
+        if (width > 768) {
+          $("header .nav__home .nav__links li").hide();
+        }
+        else {
+          $("header .nav__home .nav__links li").hide();
+        }
+      });
+    });
+  });
+  </script>
 </body>
 </html>
