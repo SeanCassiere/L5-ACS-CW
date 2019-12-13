@@ -2,12 +2,19 @@ $clr-main-bg: white;
 $clr-main-txt: black;
 @import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
 .basic-border {border: 1px solid black;}
+.filler-box {height: 100vh; width: 100%;}
 html {scroll-behavior: smooth;}
 body {
   width: 100vw;
   max-width: 100%;
   font-size: 1rem;
   margin: 0;
+  background-image: url('../images/common/QPcLem.jpg');
+  background-position: top center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: rgba(107,234,223,1.0);
 }
 *, *::before, *::after {
   box-sizing: border-box;
@@ -16,17 +23,21 @@ body {
 header {
   display: block;
   height: 60vh; width: 100%; margin: 0; padding: 0;
-  background-image: url('../images/common/QPcLem.jpg');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-color: rgba(107,234,223,1.0);
   font-family: 'Oswald', sans-serif;
   a {text-decoration: none; color: $clr-main-txt;}
   .headerTitle {
-    font-size: 4.5rem;
+    font-size: 5rem;
+    font-weight: 800;
+    letter-spacing: 0.4rem;
     margin: 0 auto;
+    padding: 10rem 0 0 0;
+    text-align: center;
+  }
+  .headerSlogan {
+    font-size: 1.45rem;
+    font-weight: 500;
+    margin: 0 auto;
+    padding: 0;
     text-align: center;
   }
   .menu {
@@ -70,24 +81,21 @@ header {
     &.active {
       span {
         background-color: transparent;
-        &::before {transform: rotate(45deg);top: 0;}
-        &::after {transform: rotate(-45deg);top: 0;}
+        &::before {transform: rotate(45deg); top: 0;}
+        &::after {transform: rotate(-45deg); top: 0;}
       }
     }
   }
   .navbar-menu {
-    width: 100%; margin: 0; padding: 0;
+    width: 100%; height: 50px;margin: 0; padding: 0;
     background-color: #fff;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50px;
+    position: absolute; top: 0; left: 0;
     transform: translateX(-100%);
     transition: 0.5s;
-    &.active {transform: translateX(0);transition: 0.5s;}
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    &.active {transform: translateX(0); transition: 0.5s;}
     .menu-listing {
-      padding: 0;margin: 0;text-align: right;
+      padding: 0; margin: 0; text-align: right;
       li {
         display: inline-block;
         a {
@@ -101,8 +109,8 @@ header {
           letter-spacing: 1px;
           text-decoration: none;
           transition: 0.5s;
-          &:hover {
-            background-color: #262626;color: #fff;transition: 0.5s;
+          &:hover, &.active {
+            background-color: #262626; color: #fff; transition: 0.5s;
           }
         }
       }
@@ -110,6 +118,10 @@ header {
   }
   @media only screen and (max-width: 768px) {
     height: 40vh;
+    .headerTitle {
+      font-size: 4.5rem;
+      padding: 6rem 0 0 0;
+    }
     .navbar-menu {
       height: auto;z-index: 1;
       .menu-listing {
@@ -120,5 +132,57 @@ header {
   }
   @media only screen and (max-width: 558px) {
     height: 30vh;
+    .headerTitle {
+      font-size: 3.5rem;
+      padding: 0.7rem 0 0 0;
+    }
+  }
+}
+
+footer {
+  height: 20vh;
+  width: 100%;
+}
+
+.grid {
+  background-color: #fff;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: auto;
+  padding: 0;
+  margin: 0;
+  .grid-favorites {
+    grid-column: 10/13;
+    grid-row: 1/span auto;
+    background-color: #fff;
+    width: 100%;
+    padding: 1rem 2rem;
+  }
+  .grid-content {
+    grid-column: 4/10;
+    padding: 1rem 2rem;
+  }
+  @media only screen and (max-width: 1000px) {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    .grid-favorites {
+      grid-column: 10/13;
+    }
+    .grid-content {
+      grid-column: 2/10;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: auto;
+    .grid-favorites {
+      grid-column: 1/13;
+      grid-row: 1/1;
+    }
+    .grid-content {
+      grid-column: 1/13;
+      grid-row: auto;
+    }
   }
 }

@@ -3,6 +3,11 @@
   border: 1px solid black;
 }
 
+.filler-box {
+  height: 100vh;
+  width: 100%;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -12,6 +17,12 @@ body {
   max-width: 100%;
   font-size: 1rem;
   margin: 0;
+  background-image: url("../images/common/QPcLem.jpg");
+  background-position: top center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #6beadf;
 }
 
 *, *::before, *::after {
@@ -25,12 +36,6 @@ header {
   width: 100%;
   margin: 0;
   padding: 0;
-  background-image: url("../images/common/QPcLem.jpg");
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
-  background-color: #6beadf;
   font-family: 'Oswald', sans-serif;
 }
 
@@ -40,8 +45,19 @@ header a {
 }
 
 header .headerTitle {
-  font-size: 4.5rem;
+  font-size: 5rem;
+  font-weight: 800;
+  letter-spacing: 0.4rem;
   margin: 0 auto;
+  padding: 10rem 0 0 0;
+  text-align: center;
+}
+
+header .headerSlogan {
+  font-size: 1.45rem;
+  font-weight: 500;
+  margin: 0 auto;
+  padding: 0;
   text-align: center;
 }
 
@@ -111,18 +127,19 @@ header .menu.active span::after {
 
 header .navbar-menu {
   width: 100%;
+  height: 50px;
   margin: 0;
   padding: 0;
   background-color: #fff;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 50px;
   -webkit-transform: translateX(-100%);
           transform: translateX(-100%);
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 header .navbar-menu.active {
@@ -156,7 +173,7 @@ header .navbar-menu .menu-listing li a {
   transition: 0.5s;
 }
 
-header .navbar-menu .menu-listing li a:hover {
+header .navbar-menu .menu-listing li a:hover, header .navbar-menu .menu-listing li a.active {
   background-color: #262626;
   color: #fff;
   -webkit-transition: 0.5s;
@@ -166,6 +183,10 @@ header .navbar-menu .menu-listing li a:hover {
 @media only screen and (max-width: 768px) {
   header {
     height: 40vh;
+  }
+  header .headerTitle {
+    font-size: 4.5rem;
+    padding: 6rem 0 0 0;
   }
   header .navbar-menu {
     height: auto;
@@ -182,6 +203,87 @@ header .navbar-menu .menu-listing li a:hover {
 @media only screen and (max-width: 558px) {
   header {
     height: 30vh;
+  }
+  header .headerTitle {
+    font-size: 3.5rem;
+    padding: 0.7rem 0 0 0;
+  }
+}
+
+footer {
+  height: 20vh;
+  width: 100%;
+}
+
+.grid {
+  background-color: #fff;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[12];
+      grid-template-columns: repeat(12, 1fr);
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  padding: 0;
+  margin: 0;
+}
+
+.grid .grid-favorites {
+  -ms-grid-column: 10;
+  -ms-grid-column-span: 3;
+  grid-column: 10/13;
+  grid-row: 1/span auto;
+  background-color: #fff;
+  width: 100%;
+  padding: 1rem 2rem;
+}
+
+.grid .grid-content {
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 6;
+  grid-column: 4/10;
+  padding: 1rem 2rem;
+}
+
+@media only screen and (max-width: 1000px) {
+  .grid {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[12];
+        grid-template-columns: repeat(12, 1fr);
+  }
+  .grid .grid-favorites {
+    -ms-grid-column: 10;
+    -ms-grid-column-span: 3;
+    grid-column: 10/13;
+  }
+  .grid .grid-content {
+    -ms-grid-column: 2;
+    -ms-grid-column-span: 8;
+    grid-column: 2/10;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .grid {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[12];
+        grid-template-columns: repeat(12, 1fr);
+    -ms-grid-rows: auto;
+        grid-template-rows: auto;
+  }
+  .grid .grid-favorites {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 12;
+    grid-column: 1/13;
+    -ms-grid-row: 1;
+    grid-row: 1/1;
+  }
+  .grid .grid-content {
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 12;
+    grid-column: 1/13;
+    grid-row: auto;
   }
 }
 /*# sourceMappingURL=style.css.map */
