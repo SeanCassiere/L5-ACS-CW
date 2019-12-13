@@ -22,56 +22,103 @@ header {
   background-attachment: fixed;
   background-size: cover;
   background-color: rgba(107,234,223,1.0);
+  font-family: 'Oswald', sans-serif;
   a {text-decoration: none; color: $clr-main-txt;}
-  .nav__home {
-    font-family: 'Oswald', sans-serif;
-    width: 100%; margin: 0; padding: 0;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    background-color: white;
-    min-height: 5.5vh;
-    display: grid;
-    grid-template-columns: repeat(9, 1fr);
-    grid-template-areas: "navigation navigation navigation navigation logo . features features features";
-    .nav__logo {
-      grid-area: logo;
-      display: inline-block;
-      font-size: 2rem;
-      padding: 0.4rem 1rem;
-      text-align: center;
-    }
-    ul.nav__links {
-      #nav__reveal {
-        display: none;
-        padding: 0.5rem;
-        width: 4rem;
+  .headerTitle {
+    font-size: 4.5rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .menu {
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: #262626;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 9999;
+    span {
+      position: absolute;
+      height: 3px;
+      width: 25px;
+      background-color: #fff;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      transition: 0.3s;
+      &::before {
+        content: '';
+        position: absolute;
+        top: -8px;
+        background-color: #fff;
+        height: 3px;
+        width: 25px;
+        transition: 0.3s;
       }
-      grid-area: navigation;
-      display: flex;
-      list-style-type: none;
-      padding: 1rem 2rem;
-      margin: 0;
+      &::after {
+        content: '';
+        position: absolute;
+        top: 8px;
+        background-color: #fff;
+        height: 3px;
+        width: 25px;
+        transition: 0.3s;
+      }
+    }
+    &.active {
+      span {
+        background-color: transparent;
+        &::before {transform: rotate(45deg);top: 0;}
+        &::after {transform: rotate(-45deg);top: 0;}
+      }
+    }
+  }
+  .navbar-menu {
+    width: 100%; margin: 0; padding: 0;
+    background-color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    transform: translateX(-100%);
+    transition: 0.5s;
+    &.active {transform: translateX(0);transition: 0.5s;}
+    .menu-listing {
+      padding: 0;margin: 0;text-align: right;
       li {
-        font-size: 1.2rem;
         display: inline-block;
         a {
-          padding: 0 1rem;
+          background-color: #fff;
+          color: #262626;
+          display: block;
+          font-size: 1rem;
+          height: 50px;
+          line-height: 50px;
+          padding: 0 20px;
+          letter-spacing: 1px;
+          text-decoration: none;
+          transition: 0.5s;
+          &:hover {
+            background-color: #262626;color: #fff;transition: 0.5s;
+          }
         }
       }
     }
   }
   @media only screen and (max-width: 768px) {
-    .nav__home {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-template-rows: repeat(2, 1fr);
-      grid-template-areas:
-        "navigation navigation navigation navigation"
-        "logo logo features features";
-      ul.nav__links {
-        grid-area: navigation;
-        flex-direction: column;
-        #nav__reveal {display: block;}
-      }
+    height: 40vh;
+    .navbar-menu {
+      height: auto;z-index: 1;
+      .menu-listing {
+        text-align: center;
+        li {display: block;}
+      } 
     }
+  }
+  @media only screen and (max-width: 558px) {
+    height: 30vh;
   }
 }

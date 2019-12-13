@@ -31,6 +31,7 @@ header {
   background-attachment: fixed;
   background-size: cover;
   background-color: #6beadf;
+  font-family: 'Oswald', sans-serif;
 }
 
 header a {
@@ -38,82 +39,149 @@ header a {
   color: black;
 }
 
-header .nav__home {
-  font-family: 'Oswald', sans-serif;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  background-color: white;
-  min-height: 5.5vh;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[9];
-      grid-template-columns: repeat(9, 1fr);
-      grid-template-areas: "navigation navigation navigation navigation logo . features features features";
-}
-
-header .nav__home .nav__logo {
-  -ms-grid-row: 1;
-  -ms-grid-column: 5;
-  grid-area: logo;
-  display: inline-block;
-  font-size: 2rem;
-  padding: 0.4rem 1rem;
+header .headerTitle {
+  font-size: 4.5rem;
+  margin: 0 auto;
   text-align: center;
 }
 
-header .nav__home ul.nav__links {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 4;
-  grid-area: navigation;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  list-style-type: none;
-  padding: 1rem 2rem;
+header .menu {
+  position: relative;
+  top: 0;
+  left: 0;
+  background-color: #262626;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  z-index: 9999;
+}
+
+header .menu span {
+  position: absolute;
+  height: 3px;
+  width: 25px;
+  background-color: #fff;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+header .menu span::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  background-color: #fff;
+  height: 3px;
+  width: 25px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+header .menu span::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  background-color: #fff;
+  height: 3px;
+  width: 25px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+header .menu.active span {
+  background-color: transparent;
+}
+
+header .menu.active span::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  top: 0;
+}
+
+header .menu.active span::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  top: 0;
+}
+
+header .navbar-menu {
+  width: 100%;
   margin: 0;
+  padding: 0;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
-header .nav__home ul.nav__links #nav__reveal {
-  display: none;
-  padding: 0.5rem;
-  width: 4rem;
+header .navbar-menu.active {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
-header .nav__home ul.nav__links li {
-  font-size: 1.2rem;
+header .navbar-menu .menu-listing {
+  padding: 0;
+  margin: 0;
+  text-align: right;
+}
+
+header .navbar-menu .menu-listing li {
   display: inline-block;
 }
 
-header .nav__home ul.nav__links li a {
-  padding: 0 1rem;
+header .navbar-menu .menu-listing li a {
+  background-color: #fff;
+  color: #262626;
+  display: block;
+  font-size: 1rem;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 20px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+header .navbar-menu .menu-listing li a:hover {
+  background-color: #262626;
+  color: #fff;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 @media only screen and (max-width: 768px) {
-  header .nav__home {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (1fr)[4];
-        grid-template-columns: repeat(4, 1fr);
-    -ms-grid-rows: (1fr)[2];
-        grid-template-rows: repeat(2, 1fr);
-        grid-template-areas: "navigation navigation navigation navigation" "logo logo features features";
+  header {
+    height: 40vh;
   }
-  header .nav__home ul.nav__links {
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
-    -ms-grid-column-span: 4;
-    grid-area: navigation;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+  header .navbar-menu {
+    height: auto;
+    z-index: 1;
   }
-  header .nav__home ul.nav__links #nav__reveal {
+  header .navbar-menu .menu-listing {
+    text-align: center;
+  }
+  header .navbar-menu .menu-listing li {
     display: block;
+  }
+}
+
+@media only screen and (max-width: 558px) {
+  header {
+    height: 30vh;
   }
 }
 /*# sourceMappingURL=style.css.map */
