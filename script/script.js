@@ -18,9 +18,7 @@ $("document").ready(function(){
   });
 
   $( function() {
-    $('#search-destinations').selectmenu();
     $('#search-comfort-level').selectmenu();
-    $('input[name="searchActivities"]').checkboxradio();
     $('#search-destinations-btn').button();
   });
 
@@ -56,8 +54,8 @@ $("document").ready(function(){
         }
       }
       destinationDisplay += "</select>";  // Close Destination Display
-      document.getElementById("search-destinations-select").innerHTML+=destinationDisplay; // Destination Printing
-      document.getElementById("search-activities-box").innerHTML+=activitiesDisplay; // Activities Printing
+      document.getElementById("search-destinations-select").innerHTML+=destinationDisplay; $('#search-destinations').selectmenu(); // Destination Printing
+      document.getElementById("search-activities-box").innerHTML+=activitiesDisplay; $('input[name="searchActivities"]').checkboxradio(); // Activities Printing
     });
   }
 
@@ -81,7 +79,7 @@ $("document").ready(function(){
     console.log(searchPriceRange);
     var searchParameters = ["none","none",[],"none"]; //Destination, Comfort Levels, Activities
     var searchVerifiedLocations = []; //Verified by algorithm
-    var searchedLocationsDisplay = ""; // Locations Write to Page
+    var searchedLocationsDisplay = "<h3>Results:</h3>"; // Locations Write to Page
 
     for (var m in masterForm.searchActivities) {
       if (masterForm.searchActivities[m].checked) {
@@ -95,26 +93,27 @@ $("document").ready(function(){
     $.getJSON('../json/locations.json', function(data) {
       // Checking Algorithm and add to searchVerifiedLocations
       for (var i in data.resorts) {
-        if ((searchParameters[0] == data.resorts[i].destination) && (searchParameters[1] === data.resorts[i].comfortLevel) && (searchParameters[2].length != 0)) {
+        if ((searchParameters[0] != "none") && (searchParameters[1] != "none") && (searchParameters[2].length != 0)) {
           console.log('Destination + Comfort + Activities');
-          if ((arrayItemComparer(searchParameters[2], data.resorts[i].activities) == true) && (searchParameters[2].length !== 0)) {
+          if ((arrayItemComparer(searchParameters[2], data.resorts[i].activities) == true) && (searchParameters[2].length !== 0) && (searchParameters[0] == data.resorts[i].destination) && (searchParameters[1] === data.resorts[i].comfortLevel) && (data.resorts[i].price > searchPriceRange[0]) && (data.resorts[i].price < searchPriceRange[1])) {
             console.log('Entered Destination + Comfort + Activities Act-Check');
-            PushToListWithoutDuplicate(searchVerifiedLocations, i);
-            continue;
+            PushToListWithoutDuplicate(searchVerifiedLocations, i); continue;
           }
         }
-        else if ((searchParameters[0] == data.resorts[i].destination) && (searchParameters[2].length != 0)) {
-          if ((searchParameters[0] == data.resorts[i].destination) && (arrayItemComparer(searchParameters[2], data.resorts[i].activities) == true) && (searchParameters[2].length !== 0)) {
+        else if ((searchParameters[0] != "none") && (searchParameters[2].length != 0)) {
+          if ((arrayItemComparer(searchParameters[2], data.resorts[i].activities) == true) && (searchParameters[2].length !== 0) && (searchParameters[0] == data.resorts[i].destination) && (data.resorts[i].price > searchPriceRange[0]) && (data.resorts[i].price < searchPriceRange[1])) {
             console.log('Destination + Activities');
             PushToListWithoutDuplicate(searchVerifiedLocations, i); continue;
           }
         }
-        else if ((searchParameters[1] == data.resorts[i].comfortLevel) && (searchParameters[0] == data.resorts[i].destination)) {
-          console.log('Destination + Comfort Level');
-          PushToListWithoutDuplicate(searchVerifiedLocations, i); continue;
+        else if ((searchParameters[1] != "none") && (searchParameters[0] != "none")) {
+          if ((searchParameters[0] == data.resorts[i].destination) && (searchParameters[1] == data.resorts[i].comfortLevel) && (data.resorts[i].price > searchPriceRange[0]) && (data.resorts[i].price < searchPriceRange[1])) {
+            console.log('Destination + Comfort Level');
+            PushToListWithoutDuplicate(searchVerifiedLocations, i); continue;
+          }
         }
-        else if ((searchParameters[1] == data.resorts[i].comfortLevel) && (searchParameters[2].length != 0)) {
-          if ((searchParameters[1] == data.resorts[i].comfortLevel) && (arrayItemComparer(searchParameters[2], data.resorts[i].activities) == true) && (searchParameters[2].length !== 0)) {
+        else if ((searchParameters[1] != "none") && (searchParameters[2].length != 0)) {
+          if ((arrayItemComparer(searchParameters[2], data.resorts[i].activities) == true) && (searchParameters[1] == data.resorts[i].comfortLevel) && (searchParameters[2].length !== 0) && (data.resorts[i].price > searchPriceRange[0]) && (data.resorts[i].price < searchPriceRange[1])) {
             console.log('Comfort Level + Activities');
             PushToListWithoutDuplicate(searchVerifiedLocations, i); continue;
           }
