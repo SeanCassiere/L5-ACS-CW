@@ -223,8 +223,8 @@ footer {
       grid-template-columns: repeat(12, 1fr);
   -ms-grid-rows: auto;
       grid-template-rows: auto;
-  padding: 0;
-  margin: 0;
+  padding: 0.5rem 0 0.5rem 0;
+  margin: 0 0.5rem;
 }
 
 .grid .grid-favorites {
@@ -244,13 +244,15 @@ footer {
   padding: 1rem 2rem;
 }
 
-@media only screen and (max-width: 1000px) {
-  .grid {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: (1fr)[12];
-        grid-template-columns: repeat(12, 1fr);
+@media only screen and (max-width: 1200px) {
+  .grid .grid-content {
+    -ms-grid-column: 3;
+    -ms-grid-column-span: 7;
+    grid-column: 3/10;
   }
+}
+
+@media only screen and (max-width: 1000px) {
   .grid .grid-favorites {
     -ms-grid-column: 10;
     -ms-grid-column-span: 3;

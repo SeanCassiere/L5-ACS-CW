@@ -1,3 +1,8 @@
+$media-break-screen-large: 1200px;
+$media-break-screen-medium: 1000px;
+$media-break-tablet: 768px;
+$media-break-phone: 558px;
+
 $clr-main-bg: white;
 $clr-main-txt: black;
 @import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
@@ -116,7 +121,7 @@ header {
       }
     }
   }
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: $media-break-tablet) {
     height: 40vh;
     .headerTitle {
       font-size: 4.5rem;
@@ -130,7 +135,7 @@ header {
       } 
     }
   }
-  @media only screen and (max-width: 558px) {
+  @media only screen and (max-width: $media-break-phone) {
     height: 30vh;
     .headerTitle {
       font-size: 3.5rem;
@@ -149,8 +154,8 @@ footer {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
-  padding: 0;
-  margin: 0;
+  padding: 0.5rem 0 0.5rem 0;
+  margin: 0 0.5rem;
   .grid-favorites {
     grid-column: 10/13;
     grid-row: 1/span auto;
@@ -162,9 +167,12 @@ footer {
     grid-column: 4/10;
     padding: 1rem 2rem;
   }
-  @media only screen and (max-width: 1000px) {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
+  @media only screen and (max-width: $media-break-screen-large) {
+    .grid-content {
+      grid-column: 3/10;
+    }
+  }
+  @media only screen and (max-width: $media-break-screen-medium) {
     .grid-favorites {
       grid-column: 10/13;
     }
@@ -172,7 +180,7 @@ footer {
       grid-column: 2/10;
     }
   }
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: $media-break-tablet) {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-rows: auto;

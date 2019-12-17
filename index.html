@@ -25,10 +25,29 @@
   </header>
   <div class="grid">
     <div class="grid-content basic-border">
-      <h1>Content Box 1</h1>
+      <form id="search-form">
+        <fieldset id="search-destinations-select">
+        </fieldset>
+        <fieldset>
+          <label for="search-comfort-level">Comfort Level</label>
+          <br>
+          <select name="search-comfort-level">
+            <option value="none">--None Selected--</option>
+            <option value="3">Comfort 3 Stars</option>
+            <option value="4">Premium 4 Stars</option>
+            <option value="5">Luxury 5 Stars</option>
+          </select>
+        </fieldset>
+        <!--<fieldset id="search-activities">
+        </fieldset>-->
+        <button type="button" id="search-destinations-btn">Search!</button>
+      </form>
+      <section id="search-results">
+        Hello World<br>
+      </section>
       <p class="filler-box"></p>
     </div>
-    <aside class="grid-favorites basic-border">
+    <aside class="grid-favorites">
       <h2>My Favorite Destinations</h2>
       <div>
         <p>You have no favorite destinations saved.</p>
