@@ -297,4 +297,8 @@ footer {
   border: 1px solid black;
   padding: 1rem;
 }
+
+fieldset {
+  padding: 1rem;
+}
 /*# sourceMappingURL=style.css.map */

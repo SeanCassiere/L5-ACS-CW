@@ -38,7 +38,7 @@ $("document").ready(function(){
   if ($("#search-destinations-select").length) {
     $.getJSON('../json/locations.json', function(data) {
       var activitiesDisplay = ""; //Activities Display
-      var destinationDisplay = "<legend for='search-destinations'>Destinations</legend>"; //Destinations Display
+      var destinationDisplay = ""; //Destinations Display
       destinationDisplay += "<select name='search-destinations' id='search-destinations'>";
       destinationDisplay += "<option value='none'>--None Selected--</option>";
       //Destinations
@@ -55,10 +55,9 @@ $("document").ready(function(){
           }
         }
       }
-      destinationDisplay += "</select>"; // Close Destination Display
-      document.getElementById("search-destinations-select").innerHTML=destinationDisplay; // Destination Printing
+      destinationDisplay += "</select>";  // Close Destination Display
+      document.getElementById("search-destinations-select").innerHTML+=destinationDisplay; // Destination Printing
       document.getElementById("search-activities-box").innerHTML+=activitiesDisplay; // Activities Printing
-      
     });
   }
 
