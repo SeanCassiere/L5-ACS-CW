@@ -34,7 +34,7 @@ $("document").ready(function(){
   var jsonDestinations = []; // Destinations Array
   var jsonActivities = []; // Activities Array
   if ($("#search-destinations-select").length) {
-    $.getJSON('../json/locations.json', function(data) {
+    $.getJSON('/json/locations.json', function(data) {
       var activitiesDisplay = ""; //Activities Display
       var destinationDisplay = ""; //Destinations Display
       destinationDisplay += "<select name='search-destinations' id='search-destinations'>";
@@ -90,7 +90,7 @@ $("document").ready(function(){
     searchParameters[0] = masterForm["search-destinations"].value; //Set Destination
     searchParameters[1] = masterForm["search-comfort-level"].value; // Set Comfort Level
 
-    $.getJSON('../json/locations.json', function(data) {
+    $.getJSON('/json/locations.json', function(data) {
       // Checking Algorithm and add to searchVerifiedLocations
       for (var i in data.resorts) {
         if ((searchParameters[0] != "none") && (searchParameters[1] != "none") && (searchParameters[2].length != 0)) {
