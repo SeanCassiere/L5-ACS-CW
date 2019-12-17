@@ -29,9 +29,8 @@
         <fieldset id="search-destinations-select">
         </fieldset>
         <fieldset id="search-comfort-level-box">
-          <label for="search-comfort-level">Comfort Level</label>
-          <br>
-          <select name="search-comfort-level">
+          <legend>Comfort Level</legend>
+          <select name="search-comfort-level" id="search-comfort-level">
             <option value="none">--None Selected--</option>
             <option value="3">Comfort 3 Stars</option>
             <option value="4">Premium 4 Stars</option>
@@ -39,7 +38,12 @@
           </select>
         </fieldset>
         <fieldset id="search-activities-box">
-          <label>Activities</label><br>
+          <legend>Activities</legend>
+        </fieldset>
+        <fieldset id="search-price-box">
+          <label for="amount">Price Range: </label>
+          <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
+          <div id="slider-range"></div>
         </fieldset>
         <button type="button" id="search-destinations-btn">Search!</button>
       </form>

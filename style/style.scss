@@ -194,3 +194,11 @@ footer {
     }
   }
 }
+
+#search-results {
+  margin-top: 2rem;
+  .search-result-item {
+    border: 1px solid black;
+    padding: 1rem;
+  }
+}

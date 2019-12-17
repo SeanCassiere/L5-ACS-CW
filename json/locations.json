@@ -51,7 +51,7 @@
             "name":"So mucch Fancy",
             "location":"Martinique",
             "comfortLevel": "3",
-            "activities":["water skiing", "tennis", "scuba diving", "spa"],
+            "activities":["water skiing", "tennis", "scuba diving", "spa","gunfire"],
             "price":1254,
             "startDate":"2017-05-05",
             "endDate":"2019-12-31",
@@ -66,7 +66,7 @@
             "name":"La Plantation d'Albion",
             "location":"Mauritius",
             "comfortLevel": "3",
-            "activities":["kids club","golf", "scuba diving", "tennis", "sailing", "spa"],
+            "activities":["kids club", "scuba diving", "tennis", "sailing", "spa","spilllunking","gunfire"],
             "price":2062,
             "startDate":"2017-01-01",
             "endDate":"2019-12-31",
@@ -74,6 +74,36 @@
             "picture":"img/infinityPool.jpg",
             "long_description":"In a remote beauty spot, savour the luxury of Mauritian lifestyle. <br> The idyllic natural setting is enhanced by the sublime decor designed by Marc Hertrich and Nicolas Adnet, and the Resort's top-end comfort is perfectly reflected in its beautifully spacious rooms. The exceptional CINQ MONDES Spa* and luxurious overflow pool add an ideally Zen touch.<br> The Resort is entirely devoted to fulfilling its guests' desires and offers discreet, personal service in its swimming areas, bars and 'Table Gourmet' restaurants.",
             "url":"resort2.html"
+        },
+        {
+            "id":"resort6",
+            "destination":"Indian Ocean",
+            "name":"La Plantation d'Albion",
+            "location":"Mauritius",
+            "comfortLevel": "4",
+            "activities":["kids club", "scuba diving", "tennis", "sailing", "spa","gunfire"],
+            "price":2062,
+            "startDate":"2017-01-01",
+            "endDate":"2019-12-31",
+            "short_description":"Beautifully located in one of the last remote creeks on the island, La Plantation d'Albion Club Med welcomes the most demanding of guests into a world of supreme refinement.",
+            "picture":"img/infinityPool.jpg",
+            "long_description":"In a remote beauty spot, savour the luxury of Mauritian lifestyle. <br> The idyllic natural setting is enhanced by the sublime decor designed by Marc Hertrich and Nicolas Adnet, and the Resort's top-end comfort is perfectly reflected in its beautifully spacious rooms. The exceptional CINQ MONDES Spa* and luxurious overflow pool add an ideally Zen touch.<br> The Resort is entirely devoted to fulfilling its guests' desires and offers discreet, personal service in its swimming areas, bars and 'Table Gourmet' restaurants.",
+            "url":"resort2.html"
+        },
+        {
+            "id":"resort7",
+            "destination":"Caribbean",
+            "name":"So mucch Fancy",
+            "location":"Martinique",
+            "comfortLevel": "3",
+            "activities":["water skiing", "tennis", "scuba diving", "spa","gunfire"],
+            "price":1254,
+            "startDate":"2017-05-05",
+            "endDate":"2019-12-31",
+            "short_description":"The resort of Les Boucaniers is located on the laid-back beach-covered south coast of the island, and is perfectly placed for Martinique holidays that are both relaxing and awe-inspiring.",
+            "picture":"img/resortpool.jpg",
+            "long_description":"A divers' paradise in the Baie du Marin, a legendary spot.<br>Its bungalows are discreetly lodged in a tropical garden beside the white sand beach in superb Marin Bay. A magical site where you can enjoy a taste of everything, alone or with family or friends. Try water sports and the magnificent Club Med Spa*. You'll be enchanted by the exotic flavours of the local cuisine and the joyful spirit of the Caribbean.",
+            "url":"resort1.html"
         }
     ]
 }
