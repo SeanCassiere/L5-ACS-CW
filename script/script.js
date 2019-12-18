@@ -91,6 +91,8 @@ $("document").ready(function(){
 
     $.getJSON('/json/locations.json', function(data) {
       // Checking Algorithm and add to searchVerifiedLocations
+
+      // Date Validation and Adding to searchVerifiedLocations Array
       function dateValidationAndSearchResult() {
         if ( (Date.parse(searchParameters[3]) >= Date.parse(data.resorts[i].startDate)) && (Date.parse(searchParameters[4]) <= Date.parse(data.resorts[i].endDate)) ) {
           console.log("Date Start + End Passed");
@@ -123,30 +125,15 @@ $("document").ready(function(){
         else if ((searchParameters[1] != "none") && (searchParameters[0] != "none")) {
           if ((searchParameters[0] == data.resorts[i].destination) && (searchParameters[1] == data.resorts[i].comfortLevel) && (data.resorts[i].price > searchPriceRange[0]) && (data.resorts[i].price < searchPriceRange[1])) {
             console.log('Destination + Comfort Level');
-            PushToListWithoutDuplicate(searchVerifiedLocations, i); continue;
+            dateValidationAndSearchResult(); continue;
           }
         }
         else if ((searchParameters[1] != "none") && (searchParameters[2].length != 0)) {
           if ((arrayItemComparer(searchParameters[2], data.resorts[i].activities) == true) && (searchParameters[1] == data.resorts[i].comfortLevel) && (searchParameters[2].length !== 0) && (data.resorts[i].price > searchPriceRange[0]) && (data.resorts[i].price < searchPriceRange[1])) {
             console.log('Comfort Level + Activities');
-            PushToListWithoutDuplicate(searchVerifiedLocations, i); continue;
+            dateValidationAndSearchResult(); continue;
           }
         }
-        /*else if ((searchParameters[0] == "none") || (searchParameters[1] == "none") || searchParameters[2] == null) {
-          
-          if ((arrayItemComparer(searchParameters[2], data.resorts[i].activities) == true) && (searchParameters[2].length != 0)) {
-            console.log('Outer Activities Check');
-            PushToListWithoutDuplicate(searchVerifiedLocations, i);
-          }
-          else if (searchParameters[0] == data.resorts[i].destination) {
-            console.log('Outer Destinations Check');
-            PushToListWithoutDuplicate(searchVerifiedLocations, i);
-          }
-          else if (searchParameters[1] == data.resorts[i].comfortLevel) {
-            console.log('Outer Comfort Level Check');
-            PushToListWithoutDuplicate(searchVerifiedLocations, i);
-          }
-        }*/
       }
 
       console.log(searchVerifiedLocations);
