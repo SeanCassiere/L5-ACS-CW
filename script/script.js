@@ -5,6 +5,7 @@ $("document").ready(function(){
     $(".navbar-menu").toggleClass("active");
   });
 
+  //jQueryUI Elements
   $( function() {
     $('#search-comfort-level').selectmenu(); // Comfort Level Select Menu
     $('#search-destinations-btn').button(); // Search Button
@@ -15,7 +16,6 @@ $("document").ready(function(){
     $( "#slider-range" ).slider({ range: true, min: 300, max: 3000, values: [ 500, 2500 ], slide: function( event, ui ) { $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] ); } });
 
   });
-
 
   //Write to an Array without duplicating Elements
   function PushToListWithoutDuplicate(array, item) {
@@ -134,23 +134,47 @@ $("document").ready(function(){
             dateValidationAndSearchResult(); continue;
           }
         }
+        else {
+          //console.log('Entered No or Single Search Criteria');
+          if ((searchParameters[0] != "none") && (searchParameters[0] == data.resorts[i].destination)) {
+            console.log('Only searched Destination');
+            dateValidationAndSearchResult(); continue;
+          } else if ((searchParameters[1] != "none") && (searchParameters[1] == data.resorts[i].comfortLevel)) {
+            console.log('Only searched Comfort Level');
+            dateValidationAndSearchResult(); continue;
+          } else if ((searchParameters[2].length != 0) && (arrayItemComparer(searchParameters[2], data.resorts[i].activities) == true)) {
+            console.log('Only searched Activities');
+            dateValidationAndSearchResult(); continue;
+          } else if ((searchParameters[3].length != 0) || (searchParameters[4].length != 0)) {
+            console.log('Only searched Dates');
+            dateValidationAndSearchResult(); continue;
+          } else if ((data.resorts[i].price >= searchPriceRange[0]) && (data.resorts[i].price <= searchPriceRange[1])) {
+            console.log('Only searched Prices');
+            dateValidationAndSearchResult(); continue;
+          }
+        }
       }
 
-      console.log(searchVerifiedLocations);
+      //console.log(searchVerifiedLocations);
       
       // Printing to Page
-      for (var y in searchVerifiedLocations) {
-        searchedLocationsDisplay += "<div class='search-result-item'>";
-        searchedLocationsDisplay += "<p> Resort ID: "+data.resorts[searchVerifiedLocations[y]].id+"</p>";
-        searchedLocationsDisplay += "<p> Name: "+data.resorts[searchVerifiedLocations[y]].name+"</p>";
-        searchedLocationsDisplay += "<p> Destination: "+data.resorts[searchVerifiedLocations[y]].destination+"</p>";
-        searchedLocationsDisplay += "<p> Price: "+data.resorts[searchVerifiedLocations[y]].price+"</p>";
-        searchedLocationsDisplay += "<p> Start Date: "+data.resorts[searchVerifiedLocations[y]].startDate+" End Date: "+data.resorts[searchVerifiedLocations[y]].endDate+"</p>";
-        searchedLocationsDisplay += "<p> Comfort Level: "+data.resorts[searchVerifiedLocations[y]].comfortLevel+"</p>";
-        searchedLocationsDisplay += "<p> Activities Offered: "+data.resorts[searchVerifiedLocations[y]].activities+"</p>";
-        searchedLocationsDisplay += "</div>";
+      if (searchVerifiedLocations != 0) {
+        for (var y in searchVerifiedLocations) {
+          searchedLocationsDisplay += "<div class='search-result-item'>";
+          searchedLocationsDisplay += "<p> Resort ID: "+data.resorts[searchVerifiedLocations[y]].id+"</p>";
+          searchedLocationsDisplay += "<p> Name: "+data.resorts[searchVerifiedLocations[y]].name+"</p>";
+          searchedLocationsDisplay += "<p> Destination: "+data.resorts[searchVerifiedLocations[y]].destination+"</p>";
+          searchedLocationsDisplay += "<p> Price: "+data.resorts[searchVerifiedLocations[y]].price+"</p>";
+          searchedLocationsDisplay += "<p> Start Date: "+data.resorts[searchVerifiedLocations[y]].startDate+" End Date: "+data.resorts[searchVerifiedLocations[y]].endDate+"</p>";
+          searchedLocationsDisplay += "<p> Comfort Level: "+data.resorts[searchVerifiedLocations[y]].comfortLevel+"</p>";
+          searchedLocationsDisplay += "<p> Activities Offered: "+data.resorts[searchVerifiedLocations[y]].activities+"</p>";
+          searchedLocationsDisplay += "</div>";
+        }
+        document.getElementById("search-results").innerHTML = searchedLocationsDisplay;
+      } else {
+        document.getElementById("search-results").innerHTML = "<h3>Search Criteria has not been provided</h3>";
       }
-      document.getElementById("search-results").innerHTML = searchedLocationsDisplay;
+      
     });
   }
 });
