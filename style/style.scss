@@ -1,11 +1,16 @@
+// https://css-tricks.com/snippets/css/media-queries-for-standard-devices/#phone-queries
 $media-break-screen-large: 1200px;
 $media-break-screen-medium: 1000px;
 $media-break-tablet: 768px;
 $media-break-phone: 558px;
 
+
 $clr-main-bg: white;
 $clr-main-txt: black;
+$clr-search_form-bg: white;
+
 @import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap&subset=latin-ext');
 .basic-border {border: 1px solid black;}
 .filler-box {height: 100vh; width: 100%;}
 html {scroll-behavior: smooth;}
@@ -13,6 +18,7 @@ body {
   width: 100vw;
   max-width: 100%;
   font-size: 1rem;
+  font-family: 'Lato', sans-serif;
   margin: 0;
   background-image: url('../images/common/QPcLem.jpg');
   background-position: top center !important;
@@ -135,7 +141,7 @@ header {
       } 
     }
   }
-  @media only screen and (max-width: $media-break-phone) {
+  @media only screen and (max-width: $media-break-phone) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait) {
     height: 30vh;
     .headerTitle {
       font-size: 3.5rem;
@@ -203,4 +209,63 @@ footer {
   }
 }
 
-fieldset {padding: 1rem;}
+#search-form {
+  background-color: $clr-search_form-bg;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(autofill, 1fr);
+  grid-auto-rows: minmax(20px, auto);
+  //grid-template-rows: repeat(5, minmax(1px, auto));
+  grid-template-areas: 
+                      "title title title title title title title title title title title title" 
+                      "destinations destinations destinations destinations destinations destinations comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box"
+                      "date-range date-range date-range date-range date-range date-range price-range price-range price-range price-range price-range price-range"
+                      "activities activities activities activities activities activities activities activities activities activities search search"
+                      "activities activities activities activities activities activities activities activities activities activities search search";
+  .form-item {
+    //border: 1px solid black;
+    padding: 0.6rem 0.8rem;
+  }
+  .label {
+    font-weight: 700;
+  }
+  #search-title-box {
+    grid-area: title;
+    text-align: center;
+    margin: 0;
+    h1 {
+      font-size: 1.7rem;
+      font-weight: 700;
+    }
+  }
+  #search-destinations-select {
+    grid-area: destinations;
+  }
+  #search-comfort-level-box {
+    grid-area: comfort-box;
+  }
+  #search-activities-box {
+    grid-area: activities;
+    label {
+      margin: 0.2rem 0.3rem;
+      width: auto;
+    }
+  }
+  #search-dates-box {
+    grid-area: date-range;
+  }
+  #search-price-box {
+    grid-area: price-range;
+  }
+  #search-btn-box {
+    grid-area: search;
+    padding: 4rem;
+    //border: 1px solid black;
+  }
+  #amount {
+    border:0;
+    color:#f6931f;
+    font-weight:bold;
+    background-color: $clr-search_form-bg;
+  }
+}

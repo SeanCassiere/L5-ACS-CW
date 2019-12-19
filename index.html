@@ -6,8 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src https://*; child-src 'none';">-->
   <title>Home</title>
-  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   <link rel="stylesheet" href="./style/style.css">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 </head>
@@ -27,36 +28,41 @@
   <div class="grid">
     <div class="grid-content">
       <form id="search-form">
-        <fieldset id="search-destinations-select">
-          <legend>Destinations<legend>
-        </fieldset>
-        <fieldset id="search-comfort-level-box">
-          <legend>Comfort Level</legend>
+        <div id="search-title-box">
+          <h1>Search for locations</h1>
+        </div>
+        <div id="search-destinations-select" class="form-item">
+          <p class="label">Destinations</p>
+        </div>
+        <div id="search-comfort-level-box" class="form-item">
+          <p class="label">Comfort Level</p>
           <select name="search-comfort-level" id="search-comfort-level">
             <option value="none">--None Selected--</option>
             <option value="3">Comfort 3 Stars</option>
             <option value="4">Premium 4 Stars</option>
             <option value="5">Luxury 5 Stars</option>
           </select>
-        </fieldset>
-        <fieldset id="search-activities-box">
-          <legend>Activities</legend>
-        </fieldset>
-        <fieldset id="search-price-box">
-          <label for="amount">Price Range: </label>
-          <input type="text" id="amount" readonly style="border:0; color:#f6931f; font-weight:bold;">
-          <br>
+        </div>
+        <div id="search-activities-box" class="form-item">
+          <p class="label">Activities</p>
+        </div>
+        <div id="search-price-box" class="form-item">
+          <p class="label">
+            <label for="amount">Price Range: </label>
+            <input type="text" id="amount" readonly>
+          </p>
           <div id="slider-range"></div>
-        </fieldset>
-        <fieldset>
-          <legend>Pick Your Date Range</legend>
-          <label for="search-date-from">From</label>
+        </div>
+        <div id="search-dates-box" class="form-item">
+          <p class="label">Pick Your Date Range</p>
+          <label for="search-date-from" class="label">From</label>
           <input type="text" id="search-date-from" name="search-date-from">
-          <label for="search-date-to">to</label>
+          <label for="search-date-to" class="label">to</label>
           <input type="text" id="search-date-to" name="search-date-to">
-        </fieldset>
-        <br>
-        <button type="button" id="search-destinations-btn">Search!</button>
+        </div>
+        <div id="search-btn-box">
+          <button type="button" id="search-destinations-btn">Search!</button>
+        </div>
       </form>
       <section id="search-results">
         <h3>Results</h3>
