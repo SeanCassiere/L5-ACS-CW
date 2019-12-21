@@ -51,7 +51,7 @@
             "name":"So much Fancy",
             "location":"Martinique",
             "comfortLevel": "3",
-            "activities":["Water skiing", "Tennis", "Scuba diving", "Spa", "Gunfire"],
+            "activities":["Water skiing", "Tennis", "Scuba diving", "Spa", "Gunfire","Kids Club"],
             "price":900,
             "startDate":"2019-11-01",
             "endDate":"2019-11-31",
