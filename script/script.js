@@ -1,7 +1,73 @@
-//Variables
-var defaultPriceValues = [500, 2000];
+// Creating FavoriteLocations Var
+if (localStorage.hasOwnProperty("favLocations")) {
+  var getListFromLocalStorage = localStorage.getItem("favLocations");
+  var favoriteLocations = getListFromLocalStorage ? getListFromLocalStorage.split(",").map(function(item){return parseInt(item, 10);}) : [];
+} else {
+  var favoriteLocations = [];
+}
+
+console.log("favoriteLocations at-start: ", favoriteLocations);
+
+// FUNCTION Write to an Array without duplicating Elements
+function PushToListWithoutDuplicate(array, item) {
+  if (array.includes(item) === false) {
+    array.push(item);
+  }
+}
+
+// FUNCTION Delete This Item from This Array
+function arrayRemove(arr, value) {
+  return arr.filter(function(ele){
+      return ele != value;
+  });
+}
+
+// FUNCTION Update Favorites List Display
+function updateFavoritesListDisplay() {
+  document.getElementById("favorites-list").innerHTML = favoriteLocations;
+}
+
+// FUNCTION Local Storage Update
+function localStorageFavoritesUpdateWithItem() {
+  try {
+    localStorage.setItem("favLocations", favoriteLocations);
+    var getListFromLocalStorage = localStorage.getItem("favLocations");
+    favoriteLocations = getListFromLocalStorage ? getListFromLocalStorage.split(",").map(function(item){return parseInt(item, 10);}) : [];
+  }
+  catch (e) {
+    if (e == QUOTA_EXCEEDED_ERR) {
+      console.log("Error: Local Storage Limit exceeded.");
+    }
+    else {
+      console.log("Error: Saving to Local Storage.");
+    }
+  }
+}
+
+// FUNCTION Add Item to Favorites List
+function addToFavoritesList(elem) {
+  var favoriteThisLocation = parseInt($(elem).closest("[data-search-location-id]").data("search-location-id"));
+  PushToListWithoutDuplicate(favoriteLocations, favoriteThisLocation);
+  localStorageFavoritesUpdateWithItem();
+  console.log("favoriteLocations: ", favoriteLocations);
+  updateFavoritesListDisplay();
+}
+
+//FUNCTION Remove from Favorites List
+function removeFromFavoritesList(elem) {
+  var favoriteThisLocation = parseInt($(elem).closest("[data-search-location-id]").data("search-location-id"));
+  favoriteLocations = arrayRemove(favoriteLocations, favoriteThisLocation);
+  localStorageFavoritesUpdateWithItem();
+  console.log(favoriteLocations);
+  updateFavoritesListDisplay();
+}
+
 
 $("document").ready(function(){
+  updateFavoritesListDisplay();
+  //Variables
+  var defaultPriceValues = [500, 2000];
+
   //Navbar Toggling of Hide/Show Classes
   $(".menu").click(function() {
     $(".menu").toggleClass("active");
@@ -20,12 +86,7 @@ $("document").ready(function(){
 
   });
 
-  // FUNCTION Write to an Array without duplicating Elements
-  function PushToListWithoutDuplicate(array, item) {
-    if (array.includes(item) === false) {
-      array.push(item);
-    }
-  }
+
 
   // Writing to Search Bar
   var jsonDestinations = []; // Destinations Array
@@ -73,6 +134,7 @@ $("document").ready(function(){
     }
     if (checkStone == arr.length) {return true;} else {return false;}
   } 
+
   //FUNCTION Searcher
   function searchFunction(masterForm) {
     var searchPriceRange = $('#slider-range').slider("values");
@@ -148,8 +210,11 @@ $("document").ready(function(){
             if ((data.resorts[i].price >= searchPriceRange[0]) && (data.resorts[i].price <= searchPriceRange[1])) {
               console.log('Price: searched Dates'); dateValidationAndSearchResult(); continue;
             }           
-          } else if ((data.resorts[i].price >= searchPriceRange[0]) && (data.resorts[i].price <= searchPriceRange[1])) {
-            console.log('Price: searched Prices'); dateValidationAndSearchResult(); continue;
+          } else if ((searchParameters[0] == "none") && (searchParameters[1] == "none") && (searchParameters[2].length == 0) && (searchParameters[3] == "") && (searchParameters[4] == "")) {
+            console.log('Entered Price Price');
+            if ((data.resorts[i].price >= searchPriceRange[0]) && (data.resorts[i].price <= searchPriceRange[1])) {
+              console.log('Price: searched Prices'); dateValidationAndSearchResult(); continue;
+            }
           } else {continue;}
         }
         else { // IF Only a single search criteria has been used
@@ -167,11 +232,11 @@ $("document").ready(function(){
           }
         }
       }
-      
+      //console.log(searchVerifiedLocations);
       // Printing to Page
       if (searchVerifiedLocations != 0) {
         for (var y in searchVerifiedLocations) {
-          searchedLocationsDisplay += "<div class='search-result-item'>";
+          searchedLocationsDisplay += "<div class='search-result-item' data-search-location-id='"+searchVerifiedLocations[y]+"'>";
           searchedLocationsDisplay += "<p> Resort ID: "+data.resorts[searchVerifiedLocations[y]].id+"</p>";
           searchedLocationsDisplay += "<p> Name: "+data.resorts[searchVerifiedLocations[y]].name+"</p>";
           searchedLocationsDisplay += "<p> Destination: "+data.resorts[searchVerifiedLocations[y]].destination+"</p>";
@@ -179,8 +244,10 @@ $("document").ready(function(){
           searchedLocationsDisplay += "<p> Start Date: "+data.resorts[searchVerifiedLocations[y]].startDate+" End Date: "+data.resorts[searchVerifiedLocations[y]].endDate+"</p>";
           searchedLocationsDisplay += "<p> Comfort Level: "+data.resorts[searchVerifiedLocations[y]].comfortLevel+"</p>";
           searchedLocationsDisplay += "<p> Activities Offered: "+data.resorts[searchVerifiedLocations[y]].activities+"</p>";
+          searchedLocationsDisplay += "<p><button onclick='addToFavoritesList(this);'>Add to Fav</button><button onclick='removeFromFavoritesList(this)'>Remove from Fav</button></p>";
           searchedLocationsDisplay += "</div>";
         }
+        // data-search-location-id='"+searchVerifiedLocations[y]+"'
         document.getElementById("search-results").innerHTML = searchedLocationsDisplay;
       } else {
         document.getElementById("search-results").innerHTML = "<h3>Problem! No Results.</h3>";
