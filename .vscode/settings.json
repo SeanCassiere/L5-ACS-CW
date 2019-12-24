@@ -9,10 +9,12 @@
     "boucaniers",
     "cinq",
     "d'albion",
+    "droppable",
     "hertrich",
     "img",
     "jpg",
     "mondes",
     "resortpool"
-  ]
+  ],
+  "liveServer.settings.port": 5501
 }
