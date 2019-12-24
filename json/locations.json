@@ -11,7 +11,7 @@
             "startDate":"2017-05-05",
             "endDate":"2019-12-31",
             "short_description":"The resort of Les Boucaniers is located on the laid-back beach-covered south coast of the island, and is perfectly placed for Martinique holidays that are both relaxing and awe-inspiring.",
-            "picture":"img/resortpool.jpg",
+            "picture":"images/resorts/club-med-les-boucaniers.jpg",
             "long_description":"A divers' paradise in the Baie du Marin, a legendary spot.<br>Its bungalows are discreetly lodged in a tropical garden beside the white sand beach in superb Marin Bay. A magical site where you can enjoy a taste of everything, alone or with family or friends. Try water sports and the magnificent Club Med Spa*. You'll be enchanted by the exotic flavours of the local cuisine and the joyful spirit of the Caribbean."
         },
         {
@@ -25,21 +25,21 @@
             "startDate":"2017-01-01",
             "endDate":"2019-12-31",
             "short_description":"Beautifully located in one of the last remote creeks on the island, La Plantation d'Albion Club Med welcomes the most demanding of guests into a world of supreme refinement.",
-            "picture":"img/infinityPool.jpg",
+            "picture":"images/resorts/clubmed.com_dream_La_Plantation_dAlbion.jpg",
             "long_description":"In a remote beauty spot, savour the luxury of Mauritian lifestyle. <br> The idyllic natural setting is enhanced by the sublime decor designed by Marc Hertrich and Nicolas Adnet, and the Resort's top-end comfort is perfectly reflected in its beautifully spacious rooms. The exceptional CINQ MONDES Spa* and luxurious overflow pool add an ideally Zen touch.<br> The Resort is entirely devoted to fulfilling its guests' desires and offers discreet, personal service in its swimming areas, bars and 'Table Gourmet' restaurants."
         },
         {
             "id":"resort3",
-            "destination":"Caribbean",
-            "name":"New Content",
-            "location":"Martinique",
-            "comfortLevel": "3",
+            "destination":"The Alps",
+            "name":"Swiss-Chalet Lodge",
+            "location":"Merlischachen",
+            "comfortLevel": "4",
             "activities":["Water skiing", "Tennis", "Scuba diving", "Spa"],
             "price":1254,
             "startDate":"2017-05-05",
             "endDate":"2019-12-31",
             "short_description":"The resort of Les Boucaniers is located on the laid-back beach-covered south coast of the island, and is perfectly placed for Martinique holidays that are both relaxing and awe-inspiring.",
-            "picture":"img/resortpool.jpg",
+            "picture":"images/resorts/club-med-les-boucaniers.jpg",
             "long_description":"A divers' paradise in the Baie du Marin, a legendary spot.<br>Its bungalows are discreetly lodged in a tropical garden beside the white sand beach in superb Marin Bay. A magical site where you can enjoy a taste of everything, alone or with family or friends. Try water sports and the magnificent Club Med Spa*. You'll be enchanted by the exotic flavours of the local cuisine and the joyful spirit of the Caribbean."
         },
         {
@@ -53,7 +53,7 @@
             "startDate":"2019-11-01",
             "endDate":"2019-11-31",
             "short_description":"The resort of Les Boucaniers is located on the laid-back beach-covered south coast of the island, and is perfectly placed for Martinique holidays that are both relaxing and awe-inspiring.",
-            "picture":"img/resortpool.jpg",
+            "picture":"images/resorts/club-med-les-boucaniers.jpg",
             "long_description":"A divers' paradise in the Baie du Marin, a legendary spot.<br>Its bungalows are discreetly lodged in a tropical garden beside the white sand beach in superb Marin Bay. A magical site where you can enjoy a taste of everything, alone or with family or friends. Try water sports and the magnificent Club Med Spa*. You'll be enchanted by the exotic flavours of the local cuisine and the joyful spirit of the Caribbean."
         },
         {
@@ -67,7 +67,7 @@
             "startDate":"2017-01-01",
             "endDate":"2018-12-31",
             "short_description":"Beautifully located in one of the last remote creeks on the island, La Plantation d'Albion Club Med welcomes the most demanding of guests into a world of supreme refinement.",
-            "picture":"img/infinityPool.jpg",
+            "picture":"images/resorts/club-med-les-boucaniers.jpg",
             "long_description":"In a remote beauty spot, savour the luxury of Mauritian lifestyle. <br> The idyllic natural setting is enhanced by the sublime decor designed by Marc Hertrich and Nicolas Adnet, and the Resort's top-end comfort is perfectly reflected in its beautifully spacious rooms. The exceptional CINQ MONDES Spa* and luxurious overflow pool add an ideally Zen touch.<br> The Resort is entirely devoted to fulfilling its guests' desires and offers discreet, personal service in its swimming areas, bars and 'Table Gourmet' restaurants."
         },
         {
@@ -81,7 +81,7 @@
             "startDate":"2019-12-01",
             "endDate":"2019-12-25",
             "short_description":"Beautifully located in one of the last remote creeks on the island, La Plantation d'Albion Club Med welcomes the most demanding of guests into a world of supreme refinement.",
-            "picture":"img/infinityPool.jpg",
+            "picture":"images/resorts/club-med-les-boucaniers.jpg",
             "long_description":"In a remote beauty spot, savour the luxury of Mauritian lifestyle. <br> The idyllic natural setting is enhanced by the sublime decor designed by Marc Hertrich and Nicolas Adnet, and the Resort's top-end comfort is perfectly reflected in its beautifully spacious rooms. The exceptional CINQ MONDES Spa* and luxurious overflow pool add an ideally Zen touch.<br> The Resort is entirely devoted to fulfilling its guests' desires and offers discreet, personal service in its swimming areas, bars and 'Table Gourmet' restaurants."
         },
         {
@@ -95,7 +95,7 @@
             "startDate":"2016-01-01",
             "endDate":"2016-12-31",
             "short_description":"The resort of Les Boucaniers is located on the laid-back beach-covered south coast of the island, and is perfectly placed for Martinique holidays that are both relaxing and awe-inspiring.",
-            "picture":"img/resortpool.jpg",
+            "picture":"images/resorts/club-med-les-boucaniers.jpg",
             "long_description":"A divers' paradise in the Baie du Marin, a legendary spot.<br>Its bungalows are discreetly lodged in a tropical garden beside the white sand beach in superb Marin Bay. A magical site where you can enjoy a taste of everything, alone or with family or friends. Try water sports and the magnificent Club Med Spa*. You'll be enchanted by the exotic flavours of the local cuisine and the joyful spirit of the Caribbean."
         }
     ]

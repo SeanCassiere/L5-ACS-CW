@@ -22,6 +22,8 @@ function arrayRemove(arr, value) {
 
 // FUNCTION Update Favorites List Display
 function updateFavoritesListDisplay() {
+  var getListFromLocalStorage = localStorage.getItem("favLocations");
+  favoriteLocations = getListFromLocalStorage ? getListFromLocalStorage.split(",").map(function(item){return parseInt(item, 10);}) : [];
   if (favoriteLocations.length != 0) {
     //document.getElementById("favorites-list").innerHTML = favoriteLocations;
     var favoriteDisplayContent = "";
@@ -78,8 +80,7 @@ function removeFromFavoritesList(elem) {
 // RUN AFTER the Page has Loaded
 $("document").ready(function(){
   console.log("favoriteLocations at-start: ", favoriteLocations); // Console Log the loaded Favorite Locations
-  updateFavoritesListDisplay(); // Call and Run the Favorites to display.
-
+  updateFavoritesListDisplay(); setInterval(function() { updateFavoritesListDisplay(); }, 2000); // Calls and Continues to keep Updating the Favorites
   //Navbar Toggling of Hide/Show Classes
   $(".menu").click(function() {
     $(".menu").toggleClass("active");

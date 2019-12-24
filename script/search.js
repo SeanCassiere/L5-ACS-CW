@@ -178,14 +178,21 @@ $(document).ready( function() {
           var locationAccess = searchVerifiedLocations[y];
           searchedLocationsDisplay += "<div class='search-result-item ui-widget-content' data-search-location-id='"+searchVerifiedLocations[y]+"'>";
           searchedLocationsDisplay += "<a href='/resort.html?id="+searchVerifiedLocations[y]+"&name="+data.resorts[searchVerifiedLocations[y]].name+"'>";
+          searchedLocationsDisplay += "<img src='"+data.resorts[searchVerifiedLocations[y]].picture+"'>";
+          searchedLocationsDisplay += "<div class='search-result-item-content'>";
+          searchedLocationsDisplay += "<p> Name : "+data.resorts[searchVerifiedLocations[y]].name+"<br>";
+          searchedLocationsDisplay += "Short Desc: "+data.resorts[searchVerifiedLocations[y]].short_description+"<br>";
+          searchedLocationsDisplay += "Price: "+data.resorts[searchVerifiedLocations[y]].price+"</p>";
+          /*
           searchedLocationsDisplay += "<p> Resort ID: "+data.resorts[searchVerifiedLocations[y]].id+"</p>";
           searchedLocationsDisplay += "<p> Name: "+data.resorts[searchVerifiedLocations[y]].name+"</p>";
           searchedLocationsDisplay += "<p> Destination: "+data.resorts[searchVerifiedLocations[y]].destination+"</p>";
-          searchedLocationsDisplay += "<p> Price: "+data.resorts[searchVerifiedLocations[y]].price+"</p>";
           searchedLocationsDisplay += "<p> Start Date: "+data.resorts[searchVerifiedLocations[y]].startDate+" End Date: "+data.resorts[searchVerifiedLocations[y]].endDate+"</p>";
           searchedLocationsDisplay += "<p> Comfort Level: "+data.resorts[searchVerifiedLocations[y]].comfortLevel+"</p>";
           searchedLocationsDisplay += "<p> Activities Offered: "+data.resorts[searchVerifiedLocations[y]].activities+"</p>";
+          */
           searchedLocationsDisplay += "</a>";
+          searchedLocationsDisplay += "</div>";
           searchedLocationsDisplay += "<p><button onclick='addToFavoritesList(this);'>Fav</button></p>";
           searchedLocationsDisplay += "</div>";
         }
