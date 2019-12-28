@@ -1,7 +1,6 @@
 $(document).ready( function() {
   //Variables
   var defaultPriceValues = [500, 2000];
-
   //jQueryUI Elements
   $( function() {
     $('#search-comfort-level').selectmenu(); // Comfort Level Select Menu
@@ -9,10 +8,8 @@ $(document).ready( function() {
     // http://jsfiddle.net/gaby/WArtA/
     $("#search-date-to").datepicker({ dateFormat: 'yy-mm-dd' }); // Search To Date
     $("#search-date-from").datepicker({ dateFormat: 'yy-mm-dd' }).bind("change", function(){ var minValue = $(this).val(); minValue = $.datepicker.parseDate("yy-mm-dd", minValue); minValue.setDate(minValue.getDate()+1); $("#search-date-to").datepicker( "option", "minDate", minValue ); }); // Search From Date
-    
     $( "#slider-range" ).slider({ range: true, min: 300, max: 3000, step: 10 , values: [ defaultPriceValues[0], defaultPriceValues[1] ], slide: function( event, ui ) { $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] ); } });
   });
-
   // Writing to Search Bar
   var jsonDestinations = []; // Destinations Array
   var jsonActivities = []; // Activities Array
@@ -43,12 +40,10 @@ $(document).ready( function() {
       document.getElementById("search-activities-box").innerHTML+=activitiesDisplay; $('input[name="searchActivities"]').checkboxradio(); // Activities Printing
     });
   }
-
   // Search Button Launch Searcher
   $("#search-destinations-btn").click(function() {
     searchFunction(document.forms["search-form"]);
   });
-
   //FUNCTION to compare array1 against array2 to find if ALL the elements of array1 exist in array2
   function arrayItemComparer(arr, arrDb){
     var checkStone = 0;
@@ -59,7 +54,6 @@ $(document).ready( function() {
     }
     if (checkStone == arr.length) {return true;} else {return false;}
   } 
-
   //FUNCTION Searcher
   function searchFunction(masterForm) {
     var searchPriceRange = $('#slider-range').slider("values");
@@ -68,7 +62,6 @@ $(document).ready( function() {
     var searchParameters = ["none","none",[],"none","none"]; //Destination, Comfort Levels, Activities
     var searchVerifiedLocations = []; //Verified by algorithm
     var searchedLocationsDisplay = "<h3>Results:</h3>"; // Locations Write to Page
-
     //Adding the User selected Activities into SearchParameters[2]
     for (var m in masterForm.searchActivities) {
       if (masterForm.searchActivities[m].checked) {
@@ -81,7 +74,6 @@ $(document).ready( function() {
     searchParameters[3] = masterForm["search-date-from"].value; // Set From Date
     searchParameters[4] = masterForm["search-date-to"].value; // Set To Date
     //console.log(searchParameters[3], searchParameters[4]);
-
     $.getJSON('/json/locations.json', function(data) {
       // Checking Algorithm and add to searchVerifiedLocations
       console.log(searchParameters);
@@ -180,24 +172,18 @@ $(document).ready( function() {
           searchedLocationsDisplay += "<a href='/resort.html?id="+searchVerifiedLocations[y]+"&name="+data.resorts[searchVerifiedLocations[y]].name+"'>";
           searchedLocationsDisplay += "<img src='"+data.resorts[searchVerifiedLocations[y]].picture+"'>";
           searchedLocationsDisplay += "<div class='search-result-item-content'>";
-          searchedLocationsDisplay += "<p> Name : "+data.resorts[searchVerifiedLocations[y]].name+"<br>";
-          searchedLocationsDisplay += "Short Desc: "+data.resorts[searchVerifiedLocations[y]].short_description+"<br>";
-          searchedLocationsDisplay += "Price: "+data.resorts[searchVerifiedLocations[y]].price+"</p>";
-          /*
-          searchedLocationsDisplay += "<p> Resort ID: "+data.resorts[searchVerifiedLocations[y]].id+"</p>";
-          searchedLocationsDisplay += "<p> Name: "+data.resorts[searchVerifiedLocations[y]].name+"</p>";
-          searchedLocationsDisplay += "<p> Destination: "+data.resorts[searchVerifiedLocations[y]].destination+"</p>";
-          searchedLocationsDisplay += "<p> Start Date: "+data.resorts[searchVerifiedLocations[y]].startDate+" End Date: "+data.resorts[searchVerifiedLocations[y]].endDate+"</p>";
-          searchedLocationsDisplay += "<p> Comfort Level: "+data.resorts[searchVerifiedLocations[y]].comfortLevel+"</p>";
-          searchedLocationsDisplay += "<p> Activities Offered: "+data.resorts[searchVerifiedLocations[y]].activities+"</p>";
-          */
+          searchedLocationsDisplay += "<p class='important big-txt'>"+data.resorts[searchVerifiedLocations[y]].name+"</p>";
+          searchedLocationsDisplay += "<p>"+data.resorts[searchVerifiedLocations[y]].short_description+"</p>";
+          searchedLocationsDisplay += "<p class='important'>Price: $"+data.resorts[searchVerifiedLocations[y]].price+"</p>";
           searchedLocationsDisplay += "</a>";
           searchedLocationsDisplay += "</div>";
-          searchedLocationsDisplay += "<p><button onclick='addToFavoritesList(this);'>Fav</button></p>";
+          searchedLocationsDisplay += "<div class='search-result-item-fav-box'><button type='button' onclick='addToFavoritesList(this);'>Add to Favorites</button></div>";
           searchedLocationsDisplay += "</div>";
         }
+        //$(".search-result-item-fav-box button[type='button']").button();
         // data-search-location-id='"+searchVerifiedLocations[y]+"'
         document.getElementById("search-results").innerHTML = searchedLocationsDisplay;
+        $(".search-result-item-fav-box button[type='button']").button();
       } else {
         document.getElementById("search-results").innerHTML = "<h3>Problem! No Results.</h3>";
       }

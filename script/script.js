@@ -64,6 +64,7 @@ function addToFavoritesList(elem) {
   var favoriteThisLocation = parseInt($(elem).closest("[data-search-location-id]").data("search-location-id"));
   PushToListWithoutDuplicate(favoriteLocations, favoriteThisLocation);
   localStorageFavoritesUpdateWithItem();
+  $(elem).attr("onclick", "removeFromFavoritesList(this);").text("Remove from Favorites");
   console.log("favoriteLocations: ", favoriteLocations);
   updateFavoritesListDisplay();
 }
@@ -73,6 +74,7 @@ function removeFromFavoritesList(elem) {
   var favoriteThisLocation = parseInt($(elem).closest("[data-search-location-id]").data("search-location-id"));
   favoriteLocations = arrayRemove(favoriteLocations, favoriteThisLocation);
   localStorageFavoritesUpdateWithItem();
+  $(elem).attr("onclick", "addToFavoritesList(this);").text("Add to Favorites");
   console.log(favoriteLocations);
   updateFavoritesListDisplay();
 }
