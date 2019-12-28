@@ -280,6 +280,7 @@ footer {
   -ms-grid-column-span: 6;
   grid-column: 4/10;
   padding: 1rem 2rem;
+  border-right: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 @media only screen and (max-width: 1200px) {
@@ -340,6 +341,9 @@ footer {
     right: 2vw;
     top: 3vh;
     padding: 0;
+  }
+  .grid .grid-content {
+    border: none;
   }
 }
 
@@ -514,6 +518,51 @@ footer {
     max-width: 100%;
     height: 70vh;
     max-height: 80vh;
+  }
+}
+
+#resort-receive h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+#resort-receive #resort_BannerImage {
+  text-align: left;
+  height: 78vh;
+}
+
+#resort-receive #resort_BannerImage img#BigBannerImage {
+  height: 55vh;
+  width: 100%;
+}
+
+#resort-receive #resort_BannerImage #SmallGalleryImages {
+  margin-top: 0.25rem;
+  text-align: center;
+  width: 100%;
+  height: 23vh;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+#resort-receive #resort_BannerImage #SmallGalleryImages .smallBannerClick {
+  width: 9vw;
+  height: 10vh;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+#resort-receive section {
+  margin-top: 2rem;
+}
+
+#resort-receive section p {
+  text-align: justify;
+}
+
+@media only screen and (max-width: 558px) {
+  #resort-receive #resort_BannerImage {
+    height: 30vh;
   }
 }
 /*# sourceMappingURL=style.css.map */
