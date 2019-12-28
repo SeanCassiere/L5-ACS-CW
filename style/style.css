@@ -239,6 +239,42 @@ footer {
   padding: 1rem 2rem;
 }
 
+.grid .grid-favorites .favorite-item {
+  width: inherit;
+  height: 10.2vh;
+  margin-top: 0.5rem;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.grid .grid-favorites .favorite-item a {
+  text-decoration: none;
+  color: black;
+}
+
+.grid .grid-favorites .favorite-item img {
+  display: inline-block;
+  width: 8vw;
+  height: 100%;
+}
+
+.grid .grid-favorites .favorite-item p {
+  display: inline-block;
+  margin: 2rem 0;
+  padding: 1rem;
+  position: relative;
+  top: -4.5vh;
+  vertical-align: baseline;
+}
+
+.grid .grid-favorites .favorite-item p.right {
+  float: right;
+  position: relative;
+  top: 0.3vh;
+  padding: 0 1.3rem 0 0;
+  text-align: right;
+}
+
 .grid .grid-content {
   -ms-grid-column: 4;
   -ms-grid-column-span: 6;
@@ -283,11 +319,27 @@ footer {
     -ms-grid-row: 1;
     grid-row: 1/1;
   }
+  .grid .grid-favorites .favorite-item img {
+    width: 20vw;
+  }
   .grid .grid-content {
     -ms-grid-column: 1;
     -ms-grid-column-span: 12;
     grid-column: 1/13;
     grid-row: auto;
+  }
+}
+
+@media only screen and (max-width: 558px) {
+  .grid {
+    margin: 0;
+  }
+  .grid .grid-favorites .favorite-item p.right {
+    margin: 0;
+    position: relative;
+    right: 2vw;
+    top: 3vh;
+    padding: 0;
   }
 }
 
@@ -299,7 +351,7 @@ footer {
   -ms-grid-columns: (1fr)[autofill];
       grid-template-columns: repeat(autofill, 1fr);
   grid-auto-rows: minmax(20px, auto);
-      grid-template-areas: "title title title title title title title title title title title title"  "destinations destinations destinations destinations destinations destinations comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box" "date-range date-range date-range date-range date-range date-range price-range price-range price-range price-range price-range price-range" "activities activities activities activities activities activities activities activities activities activities search search" "activities activities activities activities activities activities activities activities activities activities search search";
+      grid-template-areas: "title title title title title title title title title title title title"  "destinations destinations destinations destinations destinations destinations comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box" "date-range date-range date-range date-range date-range date-range price-range price-range price-range price-range price-range price-range" "activities activities activities activities activities activities activities activities activities activities activities search" "activities activities activities activities activities activities activities activities activities activities activities search";
 }
 
 #search-form .form-item {
@@ -342,7 +394,7 @@ footer {
   -ms-grid-row: 4;
   -ms-grid-row-span: 2;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 10;
+  -ms-grid-column-span: 11;
   grid-area: activities;
 }
 
@@ -368,8 +420,7 @@ footer {
 #search-form #search-btn-box {
   -ms-grid-row: 4;
   -ms-grid-row-span: 2;
-  -ms-grid-column: 11;
-  -ms-grid-column-span: 2;
+  -ms-grid-column: 12;
   grid-area: search;
   padding: 4rem;
 }
@@ -462,6 +513,7 @@ footer {
   #search-results .search-result-item {
     max-width: 100%;
     height: 70vh;
+    max-height: 80vh;
   }
 }
 /*# sourceMappingURL=style.css.map */

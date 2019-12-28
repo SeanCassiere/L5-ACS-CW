@@ -29,12 +29,16 @@ function updateFavoritesListDisplay() {
     var favoriteDisplayContent = "";
     $.getJSON('/json/locations.json', function(data) {
       for (var i in favoriteLocations) {
-        favoriteDisplayContent += "<div data-search-location-id='"+favoriteLocations[i]+"'>";
-        favoriteDisplayContent += "<p>Resort ID: "+data.resorts[favoriteLocations[i]].id+" <button onclick='removeFromFavoritesList(this)'>X</button></p>";
+        favoriteDisplayContent += "<div class='favorite-item' data-search-location-id='"+favoriteLocations[i]+"'>";
+        favoriteDisplayContent += "<a href='/resort.html?id="+favoriteLocations[i]+"&name="+data.resorts[favoriteLocations[i]].name+"'>";
+        favoriteDisplayContent += "<img src='"+data.resorts[favoriteLocations[i]].picture+"'>";
+        favoriteDisplayContent += "<p>"+data.resorts[favoriteLocations[i]].name+"</p></a>";
+        favoriteDisplayContent += "<p class='right'><button onclick='removeFromFavoritesList(this)'>X</button></p>";
         favoriteDisplayContent += "</div>";
       }
       //console.log("Display Content: ",favoriteDisplayContent);
       document.getElementById("favorites-list").innerHTML = favoriteDisplayContent;
+      //$('.right button').button();
     });
   }
   else {
@@ -82,7 +86,7 @@ function removeFromFavoritesList(elem) {
 // RUN AFTER the Page has Loaded
 $("document").ready(function(){
   console.log("favoriteLocations at-start: ", favoriteLocations); // Console Log the loaded Favorite Locations
-  updateFavoritesListDisplay(); setInterval(function() { updateFavoritesListDisplay(); }, 2000); // Calls and Continues to keep Updating the Favorites
+  updateFavoritesListDisplay();// setInterval(function() { updateFavoritesListDisplay(); }, 2000); // Calls and Continues to keep Updating the Favorites
   //Navbar Toggling of Hide/Show Classes
   $(".menu").click(function() {
     $(".menu").toggleClass("active");

@@ -168,6 +168,35 @@ footer {
     background-color: #fff;
     width: 100%;
     padding: 1rem 2rem;
+    .favorite-item {
+      width: inherit;
+      height: 10.2vh;
+      margin-top: 0.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      a {
+        text-decoration: none; color: $clr-main-txt;
+      }
+      img {
+        display: inline-block;
+        width: 8vw;
+        height: 100%;
+      }
+      p {
+        display: inline-block;
+        margin: 2rem 0;
+        padding: 1rem;
+        position: relative;
+        top: -4.5vh;
+        vertical-align: baseline;
+        &.right {
+          float: right;
+          position: relative;
+          top: 0.3vh;
+          padding: 0 1.3rem 0 0;
+          text-align: right;
+        }
+      }
+    }
   }
   .grid-content {
     grid-column: 4/10;
@@ -193,10 +222,31 @@ footer {
     .grid-favorites {
       grid-column: 1/13;
       grid-row: 1/1;
+      .favorite-item {
+        img {
+          width: 20vw;
+        }
+      }
     }
     .grid-content {
       grid-column: 1/13;
       grid-row: auto;
+    }
+  }
+  @media only screen and (max-width: $media-break-phone) {
+    margin: 0;
+    .grid-favorites {
+      .favorite-item {
+        p {
+          &.right {
+            margin: 0;
+            position: relative;
+            right: 2vw;
+            top: 3vh;
+            padding: 0;
+          }
+        }
+      }
     }
   }
 }
@@ -207,13 +257,12 @@ footer {
   display: grid;
   grid-template-columns: repeat(autofill, 1fr);
   grid-auto-rows: minmax(20px, auto);
-  //grid-template-rows: repeat(5, minmax(1px, auto));
   grid-template-areas: 
                       "title title title title title title title title title title title title" 
                       "destinations destinations destinations destinations destinations destinations comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box"
                       "date-range date-range date-range date-range date-range date-range price-range price-range price-range price-range price-range price-range"
-                      "activities activities activities activities activities activities activities activities activities activities search search"
-                      "activities activities activities activities activities activities activities activities activities activities search search";
+                      "activities activities activities activities activities activities activities activities activities activities activities search"
+                      "activities activities activities activities activities activities activities activities activities activities activities search";
   .form-item {
     //border: 1px solid black;
     padding: 0.6rem 0.8rem;
@@ -331,6 +380,7 @@ footer {
     .search-result-item {
       max-width: 100%;
       height: 70vh;
+      max-height: 80vh;
     }
   }
 }
