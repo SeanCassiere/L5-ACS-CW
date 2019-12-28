@@ -36,13 +36,11 @@ function updateFavoritesListDisplay() {
         favoriteDisplayContent += "<p class='right'><button onclick='removeFromFavoritesList(this)'>X</button></p>";
         favoriteDisplayContent += "</div>";
       }
-      //console.log("Display Content: ",favoriteDisplayContent);
-      document.getElementById("favorites-list").innerHTML = favoriteDisplayContent;
-      //$('.right button').button();
+      $("#favorites-list").html(favoriteDisplayContent);
     });
   }
   else {
-    document.getElementById("favorites-list").innerHTML = "<p>No Favorite Locations have been saved.</p>";
+    $("#favorites-list").html("<p>No Favorite Locations have been saved.</p>");
   }
 }
 

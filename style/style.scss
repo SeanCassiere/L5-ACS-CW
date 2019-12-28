@@ -13,6 +13,7 @@ $clr-search_form-bg: white;
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap&subset=latin-ext');
 .basic-border {border: 1px solid black;}
 .filler-box {height: 100vh; width: 100%;}
+.hidden {display: none;}
 html {scroll-behavior: smooth;}
 body {
   width: 100vw;
@@ -403,6 +404,7 @@ footer {
       text-align: center;
       width: 100%;
       height: 23vh;
+      padding-top: 0.25rem;
       border-top: 1px solid rgba(0,0,0,0.15);
       .smallBannerClick {
         width: 9vw;
@@ -413,6 +415,15 @@ footer {
       }
     }
   }
+  #resort_Tabs {
+    p {
+      text-align: justify;
+    }
+    iframe {
+      width: 100%;
+      height: 60vh;
+    }
+  }
   section {
     margin-top: 2rem;
     p {
@@ -421,7 +432,19 @@ footer {
   }
   @media only screen and (max-width: $media-break-phone) {
     #resort_BannerImage {
-      height: 30vh;
+      height: 76vh;
+      width: 100%;
+      padding-bottom: 0;
+      img#BigBannerImage {
+        height: 30vh;
+        width: 100%;
+      }
+      #SmallGalleryImages {
+        height: 50vh;
+        .smallBannerClick {
+          width: 25vw;
+        }
+      }
     }
   }
 }

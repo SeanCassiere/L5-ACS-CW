@@ -36,8 +36,8 @@ $(document).ready( function() {
         }
       }
       destinationDisplay += "</select>";  // Close Destination Display
-      document.getElementById("search-destinations-select").innerHTML+=destinationDisplay; $('#search-destinations').selectmenu(); // Destination Printing
-      document.getElementById("search-activities-box").innerHTML+=activitiesDisplay; $('input[name="searchActivities"]').checkboxradio(); // Activities Printing
+      document.getElementById("search-destinations-select").innerHTML += destinationDisplay; $('#search-destinations').selectmenu(); // Destination Printing
+      document.getElementById("search-activities-box").innerHTML += activitiesDisplay; $('input[name="searchActivities"]').checkboxradio(); // Activities Printing
     });
   }
   // Search Button Launch Searcher
@@ -180,12 +180,10 @@ $(document).ready( function() {
           searchedLocationsDisplay += "<div class='search-result-item-fav-box'><button type='button' onclick='addToFavoritesList(this);'>Add to Favorites</button></div>";
           searchedLocationsDisplay += "</div>";
         }
-        //$(".search-result-item-fav-box button[type='button']").button();
-        // data-search-location-id='"+searchVerifiedLocations[y]+"'
-        document.getElementById("search-results").innerHTML = searchedLocationsDisplay;
+        $("#search-results").html(searchedLocationsDisplay);
         $(".search-result-item-fav-box button[type='button']").button();
       } else {
-        document.getElementById("search-results").innerHTML = "<h3>Problem! No Results.</h3>";
+        $("#search-results").html("<h3>Problem! No Results.</h3>");
       }
     });
   }
