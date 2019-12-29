@@ -4,7 +4,6 @@ $media-break-screen-medium: 1000px;
 $media-break-tablet: 768px;
 $media-break-phone: 558px;
 
-
 $clr-main-bg: white;
 $clr-main-txt: black;
 $clr-search_form-bg: white;
@@ -206,15 +205,20 @@ footer {
   }
   @media only screen and (max-width: $media-break-screen-large) {
     .grid-content {
-      grid-column: 3/10;
+      grid-column: 1/9;
+    }
+    .grid-favorites {
+      grid-column: 9/13;
     }
   }
   @media only screen and (max-width: $media-break-screen-medium) {
     .grid-favorites {
-      grid-column: 10/13;
+      grid-column: 1/13;
+      grid-row: 1/1;
     }
     .grid-content {
-      grid-column: 2/10;
+      grid-column: 1/13;
+      grid-row: auto;
     }
   }
   @media only screen and (max-width: $media-break-tablet) {
@@ -238,6 +242,7 @@ footer {
   @media only screen and (max-width: $media-break-phone) {
     margin: 0;
     .grid-favorites {
+      grid-row: auto;
       .favorite-item {
         p {
           &.right {
@@ -252,6 +257,7 @@ footer {
     }
     .grid-content {
       border: none;
+      grid-row: 1/1;
     }
   }
 }

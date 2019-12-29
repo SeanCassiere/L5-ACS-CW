@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta http-equiv="Content-Security-Policy"
+    content="
+    script-src 'self' ajax.googleapis.com 'unsafe-inline';
+    img-src *;
+    style-src 'self' ajax.googleapis.com 'unsafe-inline';
+    style-src-elem 'self' ajax.googleapis.com fonts.googleapis.com;
+    child-src 'self' www.google.com;
+    ">
   <title>Home | Resorts</title>
   <link rel="stylesheet" href="./style/style.css">
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
