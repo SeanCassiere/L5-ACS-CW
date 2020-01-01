@@ -32,3 +32,8 @@ __CDN__ - jQuery UI CSS
 ```
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 ```
+### 7. jQeuryUI - MultiSelect
+__Repository__ - __jQuery-MultiSelect__ by nobleclem
+```
+https://github.com/nobleclem/jQuery-MultiSelect
+```
