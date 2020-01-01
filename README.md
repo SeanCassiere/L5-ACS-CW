@@ -1,4 +1,4 @@
-# Level 5- Advanced Cliet Side Web Development -Coursework
+# Level 5- Advanced Client Side Web Development -Coursework
 
 ## Requirements
 1. Search (Destinations, Comfort Level, Activities, Available Date, Price).
@@ -26,7 +26,7 @@ __CDN__ - jQuery UI CSS
 ```
 <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 ```
-### 3. jQeuryUI - MultiSelect
+### 3. jQueryUI - MultiSelect
 __Repository__ - __jQuery-MultiSelect__ by nobleclem
 ```
 https://github.com/nobleclem/jQuery-MultiSelect
