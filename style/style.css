@@ -230,8 +230,46 @@ header .navbar-menu .menu-listing li a:hover, header .navbar-menu .menu-listing 
 }
 
 footer {
-  height: 20vh;
-  width: 100%;
+  min-height: 12vh;
+  background-color: rgba(255, 255, 255, 0.8);
+  margin: 1rem 0.5rem;
+  padding: 0.3rem 3rem;
+}
+
+footer .content {
+  text-align: center;
+}
+
+footer .content .description {
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+
+footer .content .creator {
+  font-weight: 800;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+footer .content .creator a {
+  text-decoration: none;
+  color: black;
+}
+
+footer .content .creator a:hover {
+  color: #FF3333;
+}
+
+@media only screen and (max-width: 768px) {
+  footer .content .description {
+    text-align: justify;
+  }
+}
+
+@media only screen and (max-width: 558px) {
+  footer .content .description {
+    text-align: justify;
+  }
 }
 
 .grid {

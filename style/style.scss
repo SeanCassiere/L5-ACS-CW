@@ -6,6 +6,7 @@ $media-break-phone: 558px;
 
 $clr-main-bg: white;
 $clr-main-txt: black;
+$clr-main-txt-link: #FF3333;
 $clr-search_form-bg: white;
 
 @import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
@@ -163,8 +164,43 @@ header {
 }
 
 footer {
-  height: 20vh;
-  width: 100%;
+  min-height: 12vh;
+  background-color: rgba(255,255,255,0.8);
+  margin: 1rem 0.5rem;
+  padding: 0.3rem 3rem;
+  .content {
+    text-align: center;
+    .description {
+      font-weight: 500;
+      font-size: 1.2rem;
+    }
+    .creator {
+      font-weight: 800;
+      font-size: 1.1rem;
+      text-align: center;
+      a {
+        text-decoration: none;
+        color: black;
+        &:hover {
+          color: $clr-main-txt-link;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: $media-break-tablet) {
+    .content {
+      .description {
+        text-align: justify;
+      }
+    }
+  }
+  @media only screen and (max-width: $media-break-phone) {
+    .content {
+      .description {
+        text-align: justify;
+      }
+    }
+  }
 }
 
 .grid {
