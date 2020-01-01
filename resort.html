@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--Content Security Policy Definition-->
   <meta http-equiv="Content-Security-Policy"
     content="
     script-src 'self' ajax.googleapis.com 'unsafe-inline';
@@ -13,41 +14,43 @@
     child-src 'self' www.google.com;
     ">
   <title>Resorts</title>
+  <!--Import Styling, jQuery and jQueryUI-->
   <link rel="stylesheet" href="./style/style.css">
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 </head>
 <body>
-  <header>
-    <div class="menu"><span></span></div>
+  <header> <!--Header-->
+    <div class="menu"><span></span></div> <!--Nav-Bar-->
     <nav class="navbar-menu">
       <ul class="menu-listing">
         <li><a href="/index.html" class="active">Home</a></li>
         <li><a href="/index.html#search-form">Search</a></li>
       </ul>
     </nav>
+    <!--Big Text-->
     <div class="headerTitle" id="headerTitle">Destinations</div>
     <div class="headerSlogan" id="headerSlogan">By your favorite Resort finder.</div>
     <div id="nav_Reveal"></div>
   </header>
-  <div class="grid">
-    <div class="grid-content">
+  <div class="grid"> <!--ALL Content-->
+    <div class="grid-content"> <!--Main Content-->
       <section id="resort-receive">
         <h1 id="resort_TitleHeading"></h1>
         <div id="resort_BannerImage">
-          <img id="BigBannerImage">
-          <div id="SmallGalleryImages"></div>
+          <img id="BigBannerImage"> <!--Big Image Placeholder-->
+          <div id="SmallGalleryImages"></div> <!--Gallery Images Placeholder-->
         </div>
-        <section>
+        <section> <!--Brief Description Placeholder-->
           <h2>Brief Description</h2>
           <p id="resort_ShortDescription"></p>
         </section>
-        <section>
+        <section> <!--Activities Placeholder-->
           <h2>Activities on Offer</h2>
           <p id="resort_ActivitiesOffered"></p>
         </section>
-        <div id="resort_Tabs">
+        <div id="resort_Tabs"> <!--Tabs jQueryUI-->
           <ul>
             <li><a href="#tabs-1">Description</a></li>
             <li><a href="#tabs-2">Google Maps</a></li>
@@ -61,19 +64,19 @@
             <iframe allowfullscreen="" frameborder="0" id="resort_GoogleMaps"></iframe>
           </div>
         </div>
-        <section>
+        <section> <!--Other Information Placeholder-->
           <h4 id="resort_Destination"></h4>
           <h3 id="resort_Price"></h3>
         </section>        
       </section>
     </div>
-    <aside class="grid-favorites">
+    <aside class="grid-favorites"> <!--Favorites-->
       <h1>My Favorite Destinations</h1>
       <div id="favorites-list">
       </div>
     </aside>
   </div>
-  <footer>
+  <footer> <!--Footer-->
     <div class="content">
       <p class="description">This website was developed to meet the expectations set by the Coursework Specification for the Level 5 - Advanced Client Side Web Development module.</p>
       <p class="creator">Designed and Developed by <a href="https://github.com/SeanCassiere" target="_blank">Sean Cassiere</a>.</p>

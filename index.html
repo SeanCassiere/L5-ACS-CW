@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--Content Security Policy Definition-->
   <meta http-equiv="Content-Security-Policy"
     content="
     script-src 'self' ajax.googleapis.com 'unsafe-inline';
@@ -13,38 +14,39 @@
     child-src 'self' www.google.com;
     ">
   <title>Home | Resorts</title>
+  <!--Import Styling, jQuery and jQueryUI-->
   <link rel="stylesheet" href="./style/style.css">
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-
+  <!--Import Multiselect-->
   <link rel="stylesheet" href="./style/jquery.multiselect.css">
   <script src="./script/jquery.multiselect.js"></script>
-
 </head>
 <body>
-  <header>
-    <div class="menu"><span></span></div>
+  <header> <!--Header-->
+    <div class="menu"><span></span></div> <!--Nav-Bar-->
     <nav class="navbar-menu">
       <ul class="menu-listing">
-        <li><a href="/index.html" class="active">Home</a></li>
-        <li><a href="/index.html#search-form">Search</a></li>
+        <li><a href="./index.html" class="active">Home</a></li>
+        <li><a href="#search-form">Search</a></li>
       </ul>
     </nav>
+    <!--Big Text-->
     <div class="headerTitle" id="headerTitle">Resorts</div>
     <div class="headerSlogan" id="headerSlogan">Choose the ideal Resort for you</div>
     <div id="nav_Reveal"></div>
   </header>
-  <div class="grid">
-    <div class="grid-content">
+  <div class="grid"> <!--ALL Content-->
+    <div class="grid-content"> <!--Main Content-->
       <form id="search-form">
         <div id="search-title-box">
           <h1>Search for locations</h1>
         </div>
-        <div id="search-destinations-select" class="form-item">
+        <div id="search-destinations-select" class="form-item"> <!--Search Destinations-->
           <p class="label">Destinations</p>
         </div>
-        <div id="search-comfort-level-box" class="form-item">
+        <div id="search-comfort-level-box" class="form-item"> <!--Search Comfort Level-->
           <p class="label">Comfort Level</p>
           <select name="search-comfort-level" id="search-comfort-level">
             <option value="none">--None Selected--</option>
@@ -53,36 +55,36 @@
             <option value="5">Luxury 5 Stars</option>
           </select>
         </div>
-        <div id="search-activities-box" class="form-item">
+        <div id="search-activities-box" class="form-item"> <!--Search Activities-->
           <p class="label">Activities</p>
         </div>
-        <div id="search-price-box" class="form-item">
-          <p class="label">
+        <div id="search-price-box" class="form-item">  <!--Search Price Range-->
+          <p class="label"> <!--Price Label-->
             <label for="amount">Price Range: </label>
             <input type="text" id="amount" readonly>
           </p>
-          <div id="slider-range"></div>
+          <div id="slider-range"></div> <!--Price Slider-->
         </div>
-        <div id="search-dates-box" class="form-item">
+        <div id="search-dates-box" class="form-item"> <!--Search Date Range-->
           <p class="label">Pick Your Date Range</p>
-          <input type="text" id="search-date-from" name="search-date-from" placeholder="Arrival Date">
-          <input type="text" id="search-date-to" name="search-date-to" placeholder="Departure Date">
+          <input type="text" id="search-date-from" name="search-date-from" placeholder="Arrival Date"> <!--Arrival Date-->
+          <input type="text" id="search-date-to" name="search-date-to" placeholder="Departure Date"> <!--Departure Date-->
         </div>
-        <div id="search-btn-box">
+        <div id="search-btn-box"> <!--Search Button Box-->
           <button type="button" id="search-destinations-btn">Search!</button>
         </div>
-      </form>
-      <section id="search-results">
+      </form> 
+      <section id="search-results"> <!--Search Results-->
         <h3>Fill in the Search Criteria Above ^</h3>
       </section>
     </div>
-    <aside class="grid-favorites">
+    <aside class="grid-favorites"> <!--Favorites-->
       <h1>My Favorite Destinations</h1>
       <div id="favorites-list">
       </div>
     </aside>
   </div>
-  <footer>
+  <footer> <!--Footer-->
     <div class="content">
       <p class="description">This website was developed to meet the expectations set by the Coursework Specification for the Level 5 - Advanced Client Side Web Development module.</p>
       <p class="creator">Designed and Developed by <a href="https://github.com/SeanCassiere" target="_blank">Sean Cassiere</a>.</p>
