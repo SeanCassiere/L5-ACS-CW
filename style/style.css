@@ -50,6 +50,11 @@ header a {
   color: black;
 }
 
+header #nav_Reveal::after {
+  display: none;
+  content: 'true';
+}
+
 header .headerTitle {
   font-size: 5rem;
   font-weight: 800;
@@ -194,6 +199,10 @@ header .navbar-menu .menu-listing li a:hover, header .navbar-menu .menu-listing 
     font-size: 4.5rem;
     padding: 6rem 0 0 0;
   }
+  header #nav_Reveal::after {
+    display: none;
+    content: 'false';
+  }
   header .navbar-menu {
     height: auto;
     z-index: 1;
@@ -213,6 +222,10 @@ header .navbar-menu .menu-listing li a:hover, header .navbar-menu .menu-listing 
   header .headerTitle {
     font-size: 3.5rem;
     padding: 0.7rem 0 0 0;
+  }
+  header #nav_Reveal::after {
+    display: none;
+    content: 'false';
   }
 }
 

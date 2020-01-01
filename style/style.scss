@@ -36,6 +36,10 @@ header {
   height: 60vh; width: 100%; margin: 0; padding: 0;
   font-family: 'Oswald', sans-serif;
   a {text-decoration: none; color: $clr-main-txt;}
+  #nav_Reveal::after {
+    display: none;
+    content: 'true';
+  }
   .headerTitle {
     font-size: 5rem;
     font-weight: 800;
@@ -133,6 +137,10 @@ header {
       font-size: 4.5rem;
       padding: 6rem 0 0 0;
     }
+    #nav_Reveal::after {
+      display: none;
+      content: 'false';
+    }
     .navbar-menu {
       height: auto;z-index: 1;
       .menu-listing {
@@ -146,6 +154,10 @@ header {
     .headerTitle {
       font-size: 3.5rem;
       padding: 0.7rem 0 0 0;
+    }
+    #nav_Reveal::after {
+      display: none;
+      content: 'false';
     }
   }
 }

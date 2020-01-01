@@ -90,4 +90,17 @@ $("document").ready(function(){
     $(".menu").toggleClass("active");
     $(".navbar-menu").toggleClass("active");
   });
+
+
+  //Checks and Activates Menu Bar Based on Screen Size / Media Query
+  var isBigScreen = window.getComputedStyle(document.querySelector('#nav_Reveal'), ':after').getPropertyValue('content');
+
+  if(isBigScreen === '"true"') {
+    $(".menu").addClass("active");
+    $(".navbar-menu").addClass("active");
+    console.log('Media Query Check Engaged');
+  } else {
+    $(".menu").removeClass("active");
+    $(".navbar-menu").removeClass("active");
+  }
 });
