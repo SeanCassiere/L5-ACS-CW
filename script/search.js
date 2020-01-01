@@ -16,10 +16,8 @@ $(document).ready( function() {
   var countingActivities = 0; // Counting the Activities
   if ($("#search-destinations-select").length) {
     $.getJSON('/json/locations.json', function(data) {
-      var activitiesDisplay = ""; //Activities Display
-      var destinationDisplay = ""; //Destinations Display
-      destinationDisplay += "<select name='search-destinations' id='search-destinations'>";
-      destinationDisplay += "<option value='none'>--None Selected--</option>";
+      var activitiesDisplay = "<select name='search-activities[]' id='search-activities' multiple>"; //Activities Display
+      var destinationDisplay = "<select name='search-destinations[]' id='search-destinations' multiple>"; //Destinations Display
       //Destinations
       for (var i in data.resorts) {
         if (jsonDestinations.includes(data.resorts[i].destination) === false) {
@@ -30,14 +28,16 @@ $(document).ready( function() {
         for (var x in data.resorts[i].activities) {
           if (jsonActivities.includes(data.resorts[i].activities[x]) === false) {
             countingActivities += 1;
-            activitiesDisplay += "<label class='checkbox-set' for='search-checkbox-"+countingActivities+"'><input type='checkbox' id='search-checkbox-"+countingActivities+"' name='searchActivities' value='"+data.resorts[i].activities[x]+"'>"+data.resorts[i].activities[x]+"</label>";
+            activitiesDisplay += "<option value='"+data.resorts[i].activities[x]+"'>"+data.resorts[i].activities[x]+"</option>";
             jsonActivities.push(data.resorts[i].activities[x]);
           }
         }
       }
+      
       destinationDisplay += "</select>";  // Close Destination Display
-      document.getElementById("search-destinations-select").innerHTML += destinationDisplay; $('#search-destinations').selectmenu(); // Destination Printing
-      document.getElementById("search-activities-box").innerHTML += activitiesDisplay; $('input[name="searchActivities"]').checkboxradio(); // Activities Printing
+      activitiesDisplay += "</select>"; // Close Activities Display
+      document.getElementById("search-destinations-select").innerHTML += destinationDisplay; $('#search-destinations').multiselect({ columns: 1, placeholder: "Select Destinations", search: true, selectAll: true }); // Destination Printing
+      document.getElementById("search-activities-box").innerHTML += activitiesDisplay; $('#search-activities').multiselect({ columns: 1, placeholder: "Select Activities", search: true, selectAll: true }); // Activities Printing
     });
   }
   // Search Button Launch Searcher
@@ -59,56 +59,58 @@ $(document).ready( function() {
     var searchPriceRange = $('#slider-range').slider("values");
     console.log('SearchPriceRange:',searchPriceRange);
     console.log('Default Price Range:',defaultPriceValues);
-    var searchParameters = ["none","none",[],"none","none"]; //Destination, Comfort Levels, Activities
+    
+    var searchParameters = [ [] , "none" , [] , "none" , "none" ]; //Destination, Comfort Levels, Activities, ArrivalDate/From, DepartureDate/To
     var searchVerifiedLocations = []; //Verified by algorithm
     var searchedLocationsDisplay = "<h3>Results:</h3>"; // Locations Write to Page
-    //Adding the User selected Activities into SearchParameters[2]
-    for (var m in masterForm.searchActivities) {
-      if (masterForm.searchActivities[m].checked) {
-        searchParameters[2].push(masterForm.searchActivities[m].value); //Set Chosen Activities
-      }
-    }
-    //Adding to custom Search Parameters
-    searchParameters[0] = masterForm["search-destinations"].value; //Set Destination
+    
+    //Set Destination(s)
+    $("#search-destinations > option:selected").each( function() {
+      searchParameters[0].push( $(this).val() );
+    } );
+    //Set Destination(s)
+    $("#search-activities > option:selected").each( function() {
+      searchParameters[2].push( $(this).val() );
+    } );
+
     searchParameters[1] = masterForm["search-comfort-level"].value; // Set Comfort Level
     searchParameters[3] = masterForm["search-date-from"].value; // Set From Date
     searchParameters[4] = masterForm["search-date-to"].value; // Set To Date
-    //console.log(searchParameters[3], searchParameters[4]);
+
     $.getJSON('/json/locations.json', function(data) {
-      // Checking Algorithm and add to searchVerifiedLocations
-      console.log(searchParameters);
       //FUNCTION Date Validation and Adding to searchVerifiedLocations Array
       function dateValidationAndSearchResult() {
         if ( (Date.parse(searchParameters[3]) >= Date.parse(data.resorts[i].startDate)) && (Date.parse(searchParameters[4]) <= Date.parse(data.resorts[i].endDate)) ) {
-          console.log("FUNCTION: Date Start + End Passed");
+          //console.log("FUNCTION: Date Start + End Passed");
           PushToListWithoutDuplicate(searchVerifiedLocations, i); return true;
         } else if ( (Date.parse(searchParameters[3]) >= Date.parse(data.resorts[i].startDate)) && (Date.parse(searchParameters[3]) <= Date.parse(data.resorts[i].endDate)) ) {
-          console.log("FUNCTION: Date Start Passed");
+          //console.log("FUNCTION: Date Start Passed");
           PushToListWithoutDuplicate(searchVerifiedLocations, i); return true;
         } else if ( (Date.parse(data.resorts[i].startDate) <= Date.parse(searchParameters[4])) && (Date.parse(data.resorts[i].endDate) >= Date.parse(searchParameters[4])) ) {
-          console.log("FUNCTION: Date End Passed");
+          //console.log("FUNCTION: Date End Passed");
           PushToListWithoutDuplicate(searchVerifiedLocations, i); return true;
         } else if ((searchParameters[3] == "") && (searchParameters[4] == "")) {
-          console.log("FUNCTION: Entered No Dates Searching");
+          //console.log("FUNCTION: Entered No Dates Searching");
           PushToListWithoutDuplicate(searchVerifiedLocations, i); return true;
         }
       }
       for (var i in data.resorts) {
-        if ((searchParameters[0] != "none") && (searchParameters[1] != "none") && (searchParameters[2].length != 0)) {
-          console.log('ENTERED IF: Destination + Comfort + Activities');
-          if ((arrayItemComparer(searchParameters[2], data.resorts[i].activities) == true) && (searchParameters[2].length !== 0) && (searchParameters[0] == data.resorts[i].destination) && (searchParameters[1] === data.resorts[i].comfortLevel) && (data.resorts[i].price > searchPriceRange[0]) && (data.resorts[i].price < searchPriceRange[1])) {
-            //console.log('ENTERED IF: Destination + Comfort + Activities : PASS');
+        if ((searchParameters[0].includes( data.resorts[i].destination )) && (searchParameters[1] != "none") && (searchParameters[2].length != 0)) {
+          //console.log('ENTERED IF: Destination + Comfort + Activities');
+          if ((arrayItemComparer(searchParameters[2], data.resorts[i].activities) == true) && (searchParameters[2].length !== 0) && (searchParameters[0].includes( data.resorts[i].destination )) && (searchParameters[1] === data.resorts[i].comfortLevel) && (data.resorts[i].price > searchPriceRange[0]) && (data.resorts[i].price < searchPriceRange[1])) {
+            //console.log('PASSED: ENTERED IF: Destination + Comfort + Activities');
             dateValidationAndSearchResult(); continue;
           }
         }
-        else if ((searchParameters[0] != "none") && (searchParameters[2].length != 0)) {
-          if ((arrayItemComparer(searchParameters[2], data.resorts[i].activities) == true) && (searchParameters[2].length !== 0) && (searchParameters[0] == data.resorts[i].destination) && (data.resorts[i].price > searchPriceRange[0]) && (data.resorts[i].price < searchPriceRange[1])) {
+        else if ((searchParameters[0].includes( data.resorts[i].destination )) && (searchParameters[2].length != 0)) {
+          if ((arrayItemComparer(searchParameters[2], data.resorts[i].activities) == true) && (searchParameters[2].length !== 0) && (searchParameters[0].includes( data.resorts[i].destination )) && (data.resorts[i].price > searchPriceRange[0]) && (data.resorts[i].price < searchPriceRange[1])) {
             //console.log('ENTERED IF: Destination + Activities : PASS');
             dateValidationAndSearchResult(); continue;
           }
         }
-        else if ((searchParameters[1] != "none") && (searchParameters[0] != "none")) {
-          if ((searchParameters[0] == data.resorts[i].destination) && (searchParameters[1] == data.resorts[i].comfortLevel) && (data.resorts[i].price > searchPriceRange[0]) && (data.resorts[i].price < searchPriceRange[1])) {
+        
+        else if ((searchParameters[1] != "none") && (searchParameters[0].includes( data.resorts[i].destination ))) {
+          if ((searchParameters[0].includes( data.resorts[i].destination )) && (searchParameters[1] == data.resorts[i].comfortLevel) && (data.resorts[i].price > searchPriceRange[0]) && (data.resorts[i].price < searchPriceRange[1])) {
             //console.log('Destination + Comfort Level');
             dateValidationAndSearchResult(); continue;
           }
@@ -120,8 +122,8 @@ $(document).ready( function() {
           }
         }
         else if ((searchPriceRange[0] != defaultPriceValues[0]) || (searchPriceRange[1] != defaultPriceValues[1])) { // IF the Price values have been changed but not from the previous combinations
-          console.log('Entered IF: Price Changed');
-          if ((searchParameters[0] != "none") && (searchParameters[0] == data.resorts[i].destination) && (data.resorts[i].price >= searchPriceRange[0]) && (data.resorts[i].price <= searchPriceRange[1])) {
+          // console.log('Entered IF: Price Changed');
+          if ((searchParameters[0].includes( data.resorts[i].destination )) && (data.resorts[i].price >= searchPriceRange[0]) && (data.resorts[i].price <= searchPriceRange[1])) {
             //console.log('Price: searched Destination');
             dateValidationAndSearchResult(); continue;
           } else if ((searchParameters[1] != "none") && (searchParameters[1] == data.resorts[i].comfortLevel) && (data.resorts[i].price >= searchPriceRange[0]) && (data.resorts[i].price <= searchPriceRange[1])) {
@@ -135,29 +137,30 @@ $(document).ready( function() {
               //console.log('Price: searched Dates');
               dateValidationAndSearchResult(); continue;
             }           
-          } else if ((searchParameters[0] == "none") && (searchParameters[1] == "none") && (searchParameters[2].length == 0) && (searchParameters[3] == "") && (searchParameters[4] == "")) {
+          } else if ((searchParameters[0].length == 0 ) && (searchParameters[1] == "none") && (searchParameters[2].length == 0) && (searchParameters[3] == "") && (searchParameters[4] == "")) {
             //console.log('Entered Price Price');
             if ((data.resorts[i].price >= searchPriceRange[0]) && (data.resorts[i].price <= searchPriceRange[1])) {
               //console.log('Price: searched Prices');
               dateValidationAndSearchResult(); continue;
             }
-          } else {continue;}
+          } else {
+            continue;
+          }
         }
         else { // IF Only a single search criteria has been used
-          console.log('ENTERED IF: Single Search Criteria');
-          if ((searchParameters[0] != "none") && (searchParameters[0] == data.resorts[i].destination)) {
+          // console.log('ENTERED IF: Single Search Criteria');
+          if ((searchParameters[0].includes( data.resorts[i].destination )) && (searchParameters[0] == data.resorts[i].destination)) {
             //console.log('Only searched Destination');
             dateValidationAndSearchResult(); continue;
           } else if ((searchParameters[1] != "none") && (searchParameters[1] == data.resorts[i].comfortLevel)) {
-            console.log('Only searched Comfort Level');
-            //PushToListWithoutDuplicate(searchVerifiedLocations, i); continue;
+            //console.log('Only searched Comfort Level');
             dateValidationAndSearchResult(); continue;
           } else if ((arrayItemComparer(searchParameters[2], data.resorts[i].activities) == true) & (searchParameters[2].length != 0)) {
             //console.log('Only searched Activities');
             dateValidationAndSearchResult(); continue;
           } else if ((searchParameters[3].length != 0) || (searchParameters[4].length != 0)) {
             if ((data.resorts[i].price >= searchPriceRange[0]) && (data.resorts[i].price <= searchPriceRange[1])) {
-              //console.log('Only searched Dates');
+              // console.log('Only searched Dates');
               dateValidationAndSearchResult(); continue;
             }           
           }
