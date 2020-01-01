@@ -382,10 +382,10 @@ footer {
   width: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[autofill];
-      grid-template-columns: repeat(autofill, 1fr);
+  -ms-grid-columns: (1fr)[12];
+      grid-template-columns: repeat(12, 1fr);
   grid-auto-rows: minmax(20px, auto);
-      grid-template-areas: "title title title title title title title title title title title title"  "destinations destinations destinations destinations destinations destinations comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box" "date-range date-range date-range date-range date-range date-range price-range price-range price-range price-range price-range price-range" "activities activities activities activities activities activities activities activities activities activities activities search" "activities activities activities activities activities activities activities activities activities activities activities search";
+      grid-template-areas: "title title title title title title title title title title title title" "date-range date-range date-range date-range date-range activities activities activities comfort-box comfort-box comfort-box comfort-box" "destinations destinations destinations destinations destinations price-range price-range price-range price-range price-range search search";
 }
 
 #search-form .form-item {
@@ -411,52 +411,51 @@ footer {
 }
 
 #search-form #search-destinations-select {
-  -ms-grid-row: 2;
+  -ms-grid-row: 3;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 6;
+  -ms-grid-column-span: 5;
   grid-area: destinations;
 }
 
 #search-form #search-comfort-level-box {
   -ms-grid-row: 2;
-  -ms-grid-column: 7;
-  -ms-grid-column-span: 6;
+  -ms-grid-column: 9;
+  -ms-grid-column-span: 4;
   grid-area: comfort-box;
 }
 
 #search-form #search-activities-box {
-  -ms-grid-row: 4;
-  -ms-grid-row-span: 2;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 11;
+  -ms-grid-row: 2;
+  -ms-grid-column: 6;
+  -ms-grid-column-span: 3;
   grid-area: activities;
 }
 
-#search-form #search-activities-box label {
-  margin: 0.2rem 0.3rem;
-  width: auto;
+#search-form #search-dates-box {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 5;
+  grid-area: date-range;
 }
 
-#search-form #search-dates-box {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 6;
-  grid-area: date-range;
+#search-form #search-dates-box input[type="text"] {
+  padding: 5px;
+  width: 10rem;
 }
 
 #search-form #search-price-box {
   -ms-grid-row: 3;
-  -ms-grid-column: 7;
-  -ms-grid-column-span: 6;
+  -ms-grid-column: 6;
+  -ms-grid-column-span: 5;
   grid-area: price-range;
 }
 
 #search-form #search-btn-box {
-  -ms-grid-row: 4;
-  -ms-grid-row-span: 2;
-  -ms-grid-column: 12;
+  -ms-grid-row: 3;
+  -ms-grid-column: 11;
+  -ms-grid-column-span: 2;
   grid-area: search;
-  padding: 4rem;
+  padding-top: 3rem;
 }
 
 #search-form #amount {
@@ -468,15 +467,21 @@ footer {
 
 @media only screen and (max-width: 768px) {
   #search-form {
-        grid-template-areas: "title title title title"  "destinations destinations comfort-box comfort-box" "date-range date-range price-range price-range" "activities activities activities activities" "activities activities activities activities" "search search search search";
+        grid-template-areas: "title title title title title title title title title title title title"  "date-range date-range date-range date-range date-range date-range date-range activities activities activities activities activities" ". destinations destinations destinations destinations destinations comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box" ". . price-range price-range price-range price-range price-range price-range search search . .";
     text-align: center;
+  }
+  #search-form #search-activities-box div, #search-form #search-destinations-select div {
+    text-align: left;
   }
 }
 
 @media only screen and (max-width: 558px) {
   #search-form {
-        grid-template-areas: "title title title title"  "destinations destinations destinations destinations" "comfort-box comfort-box comfort-box comfort-box" "date-range date-range date-range date-range" "price-range price-range price-range price-range" "activities activities activities activities" "activities activities activities activities" "search search search search";
+        grid-template-areas: "title title title title title title title title title title title title" "date-range date-range date-range date-range date-range date-range date-range date-range date-range date-range date-range date-range" "activities activities activities activities activities activities activities activities activities activities activities activities" "price-range price-range price-range price-range price-range price-range price-range price-range price-range price-range price-range price-range" "destinations destinations destinations destinations destinations destinations destinations destinations destinations destinations destinations destinations" "comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box" "search search search search search search search search search search search search";
     text-align: center;
+  }
+  #search-form #search-activities-box div, #search-form #search-destinations-select div {
+    text-align: left;
   }
 }
 
