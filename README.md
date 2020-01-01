@@ -1,4 +1,4 @@
-# Level 5- Advanced Client Side Web Development -Coursework
+# Level 5 - Advanced Client Side Web Development -Coursework
 
 ## Requirements
 1. Search (Destinations, Comfort Level, Activities, Available Date, Price).

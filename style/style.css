@@ -305,6 +305,12 @@ footer .content .creator a:hover {
 .grid .grid-favorites .favorite-item a {
   text-decoration: none;
   color: black;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.grid .grid-favorites .favorite-item a:hover {
+  color: #FF3333;
 }
 
 .grid .grid-favorites .favorite-item img {
@@ -563,6 +569,7 @@ footer .content .creator a:hover {
 }
 
 #search-results .search-result-item .search-result-item-content p {
+  text-align: justify;
   margin-top: 0.5rem;
 }
 
