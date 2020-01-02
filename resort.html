@@ -38,6 +38,7 @@
     <div class="grid-content"> <!--Main Content-->
       <section id="resort-receive">
         <h1 id="resort_TitleHeading"></h1>
+        <h4 id="resort_Destination"></h4>
         <div id="resort_BannerImage">
           <img id="BigBannerImage"> <!--Big Image Placeholder-->
           <div id="SmallGalleryImages"></div> <!--Gallery Images Placeholder-->
@@ -53,19 +54,24 @@
         <div id="resort_Tabs"> <!--Tabs jQueryUI-->
           <ul>
             <li><a href="#tabs-1">Description</a></li>
-            <li><a href="#tabs-2">Google Maps</a></li>
+            <li><a href="#tabs-2">Accommodations</a></li>
+            <li><a href="#tabs-3">Google Maps</a></li>
           </ul>
-          <div id="tabs-1">
+          <section id="tabs-1">
             <h2>Description</h2>
             <p id="resort_LongDescription"></p>
-          </div>
-          <div id="tabs-2">
+          </section>
+          <section id="tabs-2">
+            <h2>Accommodations</h2>
+            <div id="resort_Accommodations"></div>
+          </section>
+          <section id="tabs-3">
             <h2>Google Maps Location</h2>
             <iframe allowfullscreen="" frameborder="0" id="resort_GoogleMaps"></iframe>
-          </div>
+          </section>
         </div>
         <section> <!--Other Information Placeholder-->
-          <h4 id="resort_Destination"></h4>
+          <h4 id="resort_Location"></h4>
           <h3 id="resort_Price"></h3>
         </section>        
       </section>

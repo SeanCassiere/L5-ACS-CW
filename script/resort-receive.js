@@ -15,6 +15,7 @@ function thisGalleryImage(image){
 $(document).ready( function() {
   var resortGalleryImages = "";
   var activitiesOnOffer = "";
+  var accommodationsDisplay = "";
   $.getJSON('/json/locations.json', function(data){
     window.document.title = data.resorts[userPosition].name + " | Resorts";// Write Resort name to page/tab Title
     $("#headerTitle").text(data.resorts[userPosition].name); // Write Resort name to Title
@@ -40,12 +41,24 @@ $(document).ready( function() {
     activitiesOnOffer = activitiesOnOffer.substring(0, activitiesOnOffer.length - 2);
     $("#resort_ActivitiesOffered").text(activitiesOnOffer); // Write to Activities
     
-    $("#resort_Destination").text("Location: "+data.resorts[userPosition].location); // Write to Location
+    for (var x in data.resorts[userPosition].accommodations) {
+      accommodationsDisplay += "<section class='accommodations_item'>";
+      accommodationsDisplay += "<h4>"+data.resorts[userPosition].accommodations[x][0]+"</h4>";
+      accommodationsDisplay += "<div class='accommodations_item_img'><img src='"+data.resorts[userPosition].accommodations[x][1]+"'></div>";
+      accommodationsDisplay += "<p class='accommodations_item_capacity'>Capacity: "+data.resorts[userPosition].accommodations[x][2]+"</p>";
+      accommodationsDisplay += "</section>";
+    }
+
+
+    $("#resort_Destination").text(data.resorts[userPosition].destination);
+
+    $("#resort_Location").text("Location: "+data.resorts[userPosition].location); // Write to Location
 
     $("#resort_Price").text("Current Rate: $"+data.resorts[userPosition].price+"*"); //Write to Current Rate
 
     $("#resort_Tabs").tabs( {collapsible: true} ); // Make Tabs jQueryUI
     $("#resort_LongDescription").html(data.resorts[userPosition].long_description); // Write to Tab
+    $("#resort_Accommodations").html(accommodationsDisplay);
     $("#resort_GoogleMaps").attr("src", data.resorts[userPosition].google_map); // Write to Tab
   });
 });
