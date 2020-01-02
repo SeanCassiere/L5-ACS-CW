@@ -15,7 +15,7 @@ $(document).ready( function() {
   var jsonActivities = []; // Activities Array
   var countingActivities = 0; // Counting the Activities
   if ($("#search-destinations-select").length) {
-    $.getJSON('/json/locations.json', function(data) {
+    $.getJSON('./json/locations.json', function(data) {
       var activitiesDisplay = "<select name='search-activities[]' id='search-activities' multiple>"; //Activities Display
       var destinationDisplay = "<select name='search-destinations[]' id='search-destinations' multiple>"; //Destinations Display
       //Destinations
@@ -77,7 +77,7 @@ $(document).ready( function() {
     searchParameters[3] = masterForm["search-date-from"].value; // Set From Date
     searchParameters[4] = masterForm["search-date-to"].value; // Set To Date
 
-    $.getJSON('/json/locations.json', function(data) {
+    $.getJSON('./json/locations.json', function(data) {
       //FUNCTION Date Validation and Adding to searchVerifiedLocations Array
       function dateValidationAndSearchResult() {
         if ( (Date.parse(searchParameters[3]) >= Date.parse(data.resorts[i].startDate)) && (Date.parse(searchParameters[4]) <= Date.parse(data.resorts[i].endDate)) ) {

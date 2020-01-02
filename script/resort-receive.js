@@ -16,7 +16,7 @@ $(document).ready( function() {
   var resortGalleryImages = "";
   var activitiesOnOffer = "";
   var accommodationsDisplay = "";
-  $.getJSON('/json/locations.json', function(data){
+  $.getJSON('./json/locations.json', function(data){
     window.document.title = data.resorts[userPosition].name + " | Resorts";// Write Resort name to page/tab Title
     $("#headerTitle").text(data.resorts[userPosition].name); // Write Resort name to Title
     
