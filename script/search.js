@@ -172,7 +172,7 @@ $(document).ready( function() {
         for (var y in searchVerifiedLocations) {
           var locationAccess = searchVerifiedLocations[y];
           searchedLocationsDisplay += "<div class='search-result-item ui-widget-content' data-search-location-id='"+searchVerifiedLocations[y]+"'>";
-          searchedLocationsDisplay += "<a href='/resort.html?id="+searchVerifiedLocations[y]+"&name="+data.resorts[searchVerifiedLocations[y]].name+"'>";
+          searchedLocationsDisplay += "<a href='./resort.html?id="+searchVerifiedLocations[y]+"&name="+data.resorts[searchVerifiedLocations[y]].name+"'>";
           searchedLocationsDisplay += "<img src='"+data.resorts[searchVerifiedLocations[y]].picture+"'>";
           searchedLocationsDisplay += "<div class='search-result-item-content'>";
           searchedLocationsDisplay += "<p class='important big-txt'>"+data.resorts[searchVerifiedLocations[y]].name+"</p>";
