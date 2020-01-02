@@ -12,7 +12,7 @@ $clr-search_form-bg: white;
 @import url('https://fonts.googleapis.com/css?family=Oswald&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700&display=swap&subset=latin-ext');
 .basic-border {border: 1px solid black;}
-.filler-box {height: 100vh; width: 100%;}
+
 .hidden {display: none;}
 html {scroll-behavior: smooth;}
 body {
@@ -21,7 +21,7 @@ body {
   font-size: 1rem;
   font-family: 'Lato', sans-serif;
   margin: 0;
-  background-image: url('/images/common/QPcLem.jpg');
+  background-image: url('./images/common/QPcLem.jpg');
   background-position: top center !important;
   background-repeat: no-repeat !important;
   background-attachment: fixed;
