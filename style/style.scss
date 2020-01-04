@@ -208,7 +208,7 @@ footer {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: auto;
-  padding: 0.5rem 0 0.5rem 0;
+  padding: 0.5rem 0;
   margin: 0 0.5rem;
   .grid-favorites {
     grid-column: 10/13;

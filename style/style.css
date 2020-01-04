@@ -275,7 +275,7 @@ footer .content .creator a:hover {
       grid-template-columns: repeat(12, 1fr);
   -ms-grid-rows: auto;
       grid-template-rows: auto;
-  padding: 0.5rem 0 0.5rem 0;
+  padding: 0.5rem 0;
   margin: 0 0.5rem;
 }
 

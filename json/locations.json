@@ -42,7 +42,7 @@
             "comfortLevel": "4",
             "activities":["Tennis", "Archery", "Gym", "Golf", "Swimming Pool", "Hiking", "Spa"],
             "price":980,
-            "startDate":"2019-01-01",
+            "startDate":"2016-01-01",
             "endDate":"2019-12-31",
             "short_description":"Escape to Club Med Opio en Provence for a taste of life on the French Riviera. Sat in the hills above Cannes, this all-inclusive family resort in Provence is the perfect place to recharge.",
             "picture":"./images/resorts/clubmed-france-europe.jpg",

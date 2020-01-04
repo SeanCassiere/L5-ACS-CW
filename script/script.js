@@ -67,7 +67,7 @@ function addToFavoritesList(elem) {
   PushToListWithoutDuplicate(favoriteLocations, favoriteThisLocation);
   localStorageFavoritesUpdateWithItem();
   $(elem).attr("onclick", "removeFromFavoritesList(this);").text("Remove from Favorites");
-  console.log("favoriteLocations: ", favoriteLocations);
+  console.log("favoriteLocations: ", favoriteLocations, "Added +");
   updateFavoritesListDisplay();
 }
 
@@ -77,7 +77,7 @@ function removeFromFavoritesList(elem) {
   favoriteLocations = arrayRemove(favoriteLocations, favoriteThisLocation);
   localStorageFavoritesUpdateWithItem();
   $(elem).attr("onclick", "addToFavoritesList(this);").text("Add to Favorites");
-  console.log(favoriteLocations);
+  console.log("favoriteLocations:", favoriteLocations, "Removed -");
   updateFavoritesListDisplay();
 }
 
