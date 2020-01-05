@@ -217,23 +217,13 @@ footer {
     width: 100%;
     padding: 1rem 2rem;
     .favorite-item {
-      width: inherit;
-      height: 10.2vh;
-      margin-top: 0.5rem;
+      width: inherit; height: 10.2vh; margin-top: 0.5rem;
       box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
       a {
-        text-decoration: none;
-        color: $clr-main-txt;
-        transition: color 0.3s ease;
-        &:hover {
-          color: $clr-main-txt-link;
-        }
+        text-decoration: none; color: $clr-main-txt; transition: color 0.3s ease;
+        &:hover {color: $clr-main-txt-link;}
       }
-      img {
-        display: inline-block;
-        width: 8vw;
-        height: 100%;
-      }
+      img {display: inline-block; width: 8vw; height: 100%;}
       p {
         display: inline-block;
         margin: 2rem 0;
@@ -257,130 +247,76 @@ footer {
     border-right: 1px solid rgba(0,0,0,0.15);
   }
   @media only screen and (max-width: $media-break-screen-large) {
-    .grid-content {
-      grid-column: 1/9;
-    }
-    .grid-favorites {
-      grid-column: 9/13;
-    }
+    .grid-content {grid-column: 1/9;}
+    .grid-favorites {grid-column: 9/13;}
   }
   @media only screen and (max-width: $media-break-screen-medium) {
-    .grid-favorites {
-      grid-column: 1/13;
-      grid-row: 1/1;
-    }
-    .grid-content {
-      grid-column: 1/13;
-      grid-row: auto;
-    }
+    .grid-favorites {grid-column: 1/13; grid-row: 1/1;}
+    .grid-content {grid-column: 1/13; grid-row: auto;}
   }
   @media only screen and (max-width: $media-break-tablet) {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: auto;
+    display: grid; grid-template-columns: repeat(12, 1fr); grid-template-rows: auto;
     .grid-favorites {
-      grid-column: 1/13;
-      grid-row: 1/1;
+      grid-column: 1/13; grid-row: 1/1;
+      h1 {text-align: center;}
       .favorite-item {
-        img {
-          width: 20vw;
-        }
+        img {width: 20vw;}
       }
     }
-    .grid-content {
-      grid-column: 1/13;
-      grid-row: auto;
-    }
+    .grid-content {grid-column: 1/13; grid-row: auto;}
   }
   @media only screen and (max-width: $media-break-phone) {
     margin: 0;
     .grid-favorites {
       grid-row: auto;
+      h1 {text-align: center;}
       .favorite-item {
         p {
           &.right {
-            margin: 0;
-            position: relative;
-            right: 2vw;
-            top: 3vh;
-            padding: 0;
+            margin: 0; padding: 0;
+            position: relative; right: 2vw; top: 3vh;
           }
         }
       }
     }
-    .grid-content {
-      border: none;
-      grid-row: 1/1;
-    }
+    .grid-content {border: none; grid-row: 1/1;}
   }
 }
 
 #search-form {
-  background-color: $clr-search_form-bg;
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-auto-rows: minmax(20px, auto);
+  background-color: $clr-search_form-bg; width: 100%;
+  display: grid; grid-template-columns: repeat(12, 1fr); grid-auto-rows: minmax(20px, auto);
   grid-template-areas: 
                       "title title title title title title title title title title title title"
                       "date-range date-range date-range date-range date-range activities activities activities comfort-box comfort-box comfort-box comfort-box"
                       "destinations destinations destinations destinations destinations price-range price-range price-range price-range price-range search search";
-  .form-item {
-    padding: 0.6rem 0.8rem;
-  }
-  .label {
-    font-weight: 700;
-  }
+  .form-item {padding: 0.6rem 0.8rem;}
+  .label {font-weight: 700;}
   #search-title-box {
-    grid-area: title;
-    text-align: center;
-    margin: 0;
-    h1 {
-      font-size: 1.7rem;
-      font-weight: 700;
-    }
+    grid-area: title; margin: 0; text-align: center;
+    h1 {font-size: 1.7rem; font-weight: 700;}
   }
-  #search-destinations-select {
-    grid-area: destinations;
-  }
-  #search-comfort-level-box {
-    grid-area: comfort-box;
-  }
-  #search-activities-box {
-    grid-area: activities;
-  }
+  #search-destinations-select {grid-area: destinations;}
+  #search-comfort-level-box {grid-area: comfort-box;}
+  #search-activities-box {grid-area: activities;}
   #search-dates-box {
     grid-area: date-range;
-    input[type="text"] {
-      padding: 5px;
-      width: 10rem;
-    }
+    input[type="text"] {padding: 5px; width: 10rem;}
   }
-  #search-price-box {
-    grid-area: price-range;
-  }
-  #search-btn-box {
-    grid-area: search;
-    padding-top: 3rem;
-  }
-  #amount {
-    border:0;
-    color:#f6931f;
-    font-weight:bold;
-    background-color: $clr-search_form-bg;
-  }
+  #search-price-box {grid-area: price-range;}
+  #search-btn-box {grid-area: search; padding-top: 3rem;}
+  #amount {border:0; color:#f6931f; font-weight:bold; background-color: $clr-search_form-bg;}
   @media only screen and (max-width: $media-break-tablet) {
+    text-align: center;
     grid-template-areas: 
                       "title title title title title title title title title title title title" 
                       "date-range date-range date-range date-range date-range date-range date-range activities activities activities activities activities"
                       ". destinations destinations destinations destinations destinations comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box"
                       ". . price-range price-range price-range price-range price-range price-range search search . .";
-    text-align: center;
-    #search-activities-box div, #search-destinations-select div {
-      text-align: left;
-    }
+    #search-activities-box div, #search-destinations-select div {text-align: left;}
   }
   @media only screen and (max-width: $media-break-phone) {
+    text-align: center;
     grid-template-areas: 
                       "title title title title title title title title title title title title"
                       "date-range date-range date-range date-range date-range date-range date-range date-range date-range date-range date-range date-range"
@@ -389,18 +325,19 @@ footer {
                       "destinations destinations destinations destinations destinations destinations destinations destinations destinations destinations destinations destinations"
                       "comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box"
                       "search search search search search search search search search search search search";
-    text-align: center;
-    #search-activities-box div, #search-destinations-select div {
-      text-align: left;
-    }
+    #search-activities-box div, #search-destinations-select div {text-align: left;}
   }
+}
+
+.ui {
+  &-corner-all {border-radius: 0 !important;}
+  &-widget {font-size: 1rem !important;}
+  &-button {padding: 5px !important; margin: 0 !important;}
 }
 
 #search-results {
   margin: 0 auto;
-  h3 {
-    text-align: center;
-  }
+  h3 {text-align: center;}
   .search-result-item {
     min-width: 18vw;
     max-width: 48.1%;
@@ -410,149 +347,80 @@ footer {
     color: $clr-main-txt;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-    &:hover {
-      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    }
-    .search-result-item-fav-box {
-      padding: 1rem 3rem;
-    }
-    img {
-      width: 100%;
-      height: 30vh;
-    }
+    &:hover {box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);}
+    .search-result-item-fav-box {padding: 1rem 3rem;}
+    img { width: 100%; height: 30vh;}
     .search-result-item-content {
       padding: 1rem 1rem 0rem 1rem;
       p {
-        text-align: justify;
-        margin-top: 0.5rem;
+        text-align: justify; margin-top: 0.5rem;
         &.important {font-weight: 800;}
         &.big-txt {font-size: 1.2rem;}
       }
     }
-    a {
-      text-decoration: none;
-    }
+    a {text-decoration: none;}
   }
   @media only screen and (max-width: $media-break-tablet) {
-    .search-result-item {
-      max-width: 47.6%;
-      height: 65vh;
-      max-height: 67vh;
-    }
+    .search-result-item {max-width: 47.6%; height: 65vh; max-height: 67vh;}
   }
   @media only screen and (max-width: $media-break-phone) {
-    .search-result-item {
-      max-width: 100%;
-      height: 70vh;
-      max-height: 80vh;
-    }
-  }
-}
-
-.ui {
-  &-corner-all {
-    border-radius: 0 !important;
-  }
-  &-widget {
-    font-size: 1rem !important;
-  }
-  &-button {
-    padding: 5px !important;
-    margin: 0 !important;
+    .search-result-item {max-width: 100%; height: 70vh; max-height: 80vh;}
   }
 }
 
 #resort-receive {
   h2 {font-size: 1.2rem; font-weight: 600;}
   #resort_BannerImage {
-    text-align: left;
-    height: 78vh;
-    img#BigBannerImage {
-      height: 55vh;
-      width: 100%;
-    }
+    text-align: left; height: 78vh;
+    img#BigBannerImage {height: 55vh; width: 100%;}
     #SmallGalleryImages {
-      margin-top: 0.25rem;
+      margin-top: 0.25rem; padding-top: 0.25rem;
+      width: 100%; height: 23vh;
       text-align: center;
-      width: 100%;
-      height: 23vh;
-      padding-top: 0.25rem;
       border-top: 1px solid rgba(0,0,0,0.15);
-      .smallBannerClick {
-        width: 9vw;
-        height: 10vh;
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-        margin-top: 0.25rem;
-      }
+      .smallBannerClick {width: 9vw; height: 10vh; margin: 0.25rem 0.5rem 0rem 0.5rem;}
     }
   }
   #resort_Tabs {
-    p {
-      text-align: justify;
-    }
-    iframe {
-      width: 100%;
-      height: 60vh;
-    }
+    p {text-align: justify;}
+    iframe {width: 100%; height: 60vh;}
   }
   section {
     margin-top: 2rem;
-    p {
-      text-align: justify;
-    }
+    p {text-align: justify;}
   }
   .accommodations_item {
-    padding: 2rem 2rem;
-    margin: 1rem 2rem;
+    padding: 2rem 2rem;margin: 1rem 2rem;
     height: 45vh;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
     h4 {margin: 0 0 1rem 0;}
     &_img {
-      width: 100%;
-      height: 30vh;
+      width: 100%; height: 30vh;
       text-align: center;
-      img {
-        width: 60%;
-        height: inherit;
-      }
+      img {width: 60%; height: inherit;}
     }
-    &_capacity {
-      color: $clr-main-txt-link;
-    }
+    &_capacity {color: $clr-main-txt-link;}
   }
   @media only screen and (max-width: $media-break-tablet) {
-    .accommodations_item {
-      margin: 1rem 0;
-    }
+    .accommodations_item {margin: 1rem 0;}
   }
   @media only screen and (max-width: $media-break-phone) {
     #resort_BannerImage {
-      height: 76vh;
-      width: 100%;
+      height: 76vh; width: 100%;
       padding-bottom: 0;
-      img#BigBannerImage {
-        height: 30vh;
-        width: 100%;
-      }
+      img#BigBannerImage {height: 30vh; width: 100%;}
       #SmallGalleryImages {
         height: 50vh;
-        .smallBannerClick {
-          width: 25vw;
-        }
+        .smallBannerClick {width: 25vw;}
       }
     }
     .accommodations_item {
-      padding: 1rem 1rem;
-      margin: 1rem 0;
-      min-height: 40vh;
-      max-height: 50vh;
+      padding: 1rem 1rem; margin: 1rem 0;
+      min-height: 40vh; max-height: 50vh;
       h4 {margin: 0 0 0.5rem 0;}
       &_img {
         height: 25vh;
-        img {
-          width: 100%;
-        }
+        img {width: 100%;}
       }
     }
   }

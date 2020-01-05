@@ -384,6 +384,9 @@ footer .content .creator a:hover {
     -ms-grid-row: 1;
     grid-row: 1/1;
   }
+  .grid .grid-favorites h1 {
+    text-align: center;
+  }
   .grid .grid-favorites .favorite-item img {
     width: 20vw;
   }
@@ -402,12 +405,15 @@ footer .content .creator a:hover {
   .grid .grid-favorites {
     grid-row: auto;
   }
+  .grid .grid-favorites h1 {
+    text-align: center;
+  }
   .grid .grid-favorites .favorite-item p.right {
     margin: 0;
+    padding: 0;
     position: relative;
     right: 2vw;
     top: 3vh;
-    padding: 0;
   }
   .grid .grid-content {
     border: none;
@@ -440,8 +446,8 @@ footer .content .creator a:hover {
   -ms-grid-column: 1;
   -ms-grid-column-span: 12;
   grid-area: title;
-  text-align: center;
   margin: 0;
+  text-align: center;
 }
 
 #search-form #search-title-box h1 {
@@ -506,8 +512,8 @@ footer .content .creator a:hover {
 
 @media only screen and (max-width: 768px) {
   #search-form {
-        grid-template-areas: "title title title title title title title title title title title title"  "date-range date-range date-range date-range date-range date-range date-range activities activities activities activities activities" ". destinations destinations destinations destinations destinations comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box" ". . price-range price-range price-range price-range price-range price-range search search . .";
     text-align: center;
+        grid-template-areas: "title title title title title title title title title title title title"  "date-range date-range date-range date-range date-range date-range date-range activities activities activities activities activities" ". destinations destinations destinations destinations destinations comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box" ". . price-range price-range price-range price-range price-range price-range search search . .";
   }
   #search-form #search-activities-box div, #search-form #search-destinations-select div {
     text-align: left;
@@ -516,12 +522,25 @@ footer .content .creator a:hover {
 
 @media only screen and (max-width: 558px) {
   #search-form {
-        grid-template-areas: "title title title title title title title title title title title title" "date-range date-range date-range date-range date-range date-range date-range date-range date-range date-range date-range date-range" "activities activities activities activities activities activities activities activities activities activities activities activities" "price-range price-range price-range price-range price-range price-range price-range price-range price-range price-range price-range price-range" "destinations destinations destinations destinations destinations destinations destinations destinations destinations destinations destinations destinations" "comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box" "search search search search search search search search search search search search";
     text-align: center;
+        grid-template-areas: "title title title title title title title title title title title title" "date-range date-range date-range date-range date-range date-range date-range date-range date-range date-range date-range date-range" "activities activities activities activities activities activities activities activities activities activities activities activities" "price-range price-range price-range price-range price-range price-range price-range price-range price-range price-range price-range price-range" "destinations destinations destinations destinations destinations destinations destinations destinations destinations destinations destinations destinations" "comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box comfort-box" "search search search search search search search search search search search search";
   }
   #search-form #search-activities-box div, #search-form #search-destinations-select div {
     text-align: left;
   }
+}
+
+.ui-corner-all {
+  border-radius: 0 !important;
+}
+
+.ui-widget {
+  font-size: 1rem !important;
+}
+
+.ui-button {
+  padding: 5px !important;
+  margin: 0 !important;
 }
 
 #search-results {
@@ -596,19 +615,6 @@ footer .content .creator a:hover {
   }
 }
 
-.ui-corner-all {
-  border-radius: 0 !important;
-}
-
-.ui-widget {
-  font-size: 1rem !important;
-}
-
-.ui-button {
-  padding: 5px !important;
-  margin: 0 !important;
-}
-
 #resort-receive h2 {
   font-size: 1.2rem;
   font-weight: 600;
@@ -626,19 +632,17 @@ footer .content .creator a:hover {
 
 #resort-receive #resort_BannerImage #SmallGalleryImages {
   margin-top: 0.25rem;
-  text-align: center;
+  padding-top: 0.25rem;
   width: 100%;
   height: 23vh;
-  padding-top: 0.25rem;
+  text-align: center;
   border-top: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 #resort-receive #resort_BannerImage #SmallGalleryImages .smallBannerClick {
   width: 9vw;
   height: 10vh;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
-  margin-top: 0.25rem;
+  margin: 0.25rem 0.5rem 0rem 0.5rem;
 }
 
 #resort-receive #resort_Tabs p {
